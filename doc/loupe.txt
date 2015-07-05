@@ -7,9 +7,10 @@ CONTENTS                                                       *loupe-contents*
 3. Options         |loupe-options|
 4. Mappings        |loupe-mappings|
 5. Overrides       |loupe-overrides|
-6. License         |loupe-license|
-7. Authors         |loupe-authors|
-8. History         |loupe-history|
+6. Website         |loupe-website|
+7. License         |loupe-license|
+8. Authors         |loupe-authors|
+9. History         |loupe-history|
 
 
 INTRO                                                             *loupe-intro*
@@ -197,6 +198,21 @@ To override any of these choices, you can place overrides in an
   set shortmess-=s
 
 
+WEBSITE                                                         *loupe-website*
+
+The official Loupe source code repo is at:
+
+  http://git.wincent.com/loupe.git
+
+A mirror exists at:
+
+  https://github.com/wincent/loupe
+
+Official releases are listed at:
+
+  http://www.vim.org/scripts/script.php?script_id=5215
+
+
 LICENSE                                                         *loupe-license*
 
 Copyright 2015-present Greg Hurrell. All rights reserved.
@@ -240,7 +256,7 @@ Which he discussed in his "More Instantly Better Vim" presentation at OSCON
 
 HISTORY                                                         *loupe-history*
 
-0.1 (not yet released)
+0.1 (5 July 2015)
 
 - initial release, extracted from my dotfiles
   (https://github.com/wincent/wincent)
