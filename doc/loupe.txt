@@ -126,6 +126,7 @@ OPTIONS                                                         *loupe-options*
 
 MAPPINGS                                                       *loupe-mappings*
 
+                                                    *<Plug>LoupeClearHighlight*
                                                   *<Plug>(LoupeClearHighlight)*
 Loupe maps <leader>n to |<Plug>(LoupeClearHighlight)|, which clears all visible
 highlights (like |:nohighlight| does). To use an alternative mapping instead,
