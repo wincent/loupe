@@ -261,5 +261,6 @@ HISTORY                                                         *loupe-history*
 - initial release, extracted from my dotfiles
   (https://github.com/wincent/wincent)
 
+
 -----------------------------------------------------------------------------
 vim:tw=78:ft=help:
