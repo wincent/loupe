@@ -110,7 +110,7 @@ OPTIONS                                                         *loupe-options*
                                                      *g:LoupeClearHighlightMap*
   |g:LoupeClearHighlightMap|                               boolean (default: 1)
 
-  Controls whether to set up the |<Plug>LoupeClearHighlight| mapping. To
+  Controls whether to set up the |<Plug>(LoupeClearHighlight)| mapping. To
   prevent any mapping from being configured, set to 0: >
 
     let g:LoupeClearHighlightMap=0
@@ -126,19 +126,19 @@ OPTIONS                                                         *loupe-options*
 
 MAPPINGS                                                       *loupe-mappings*
 
-                                                    *<Plug>LoupeClearHighlight*
-Loupe maps <leader>n to |<Plug>LoupeClearHighlight|, which clears all visible
+                                                  *<Plug>(LoupeClearHighlight)*
+Loupe maps <leader>n to |<Plug>(LoupeClearHighlight)|, which clears all visible
 highlights (like |:nohighlight| does). To use an alternative mapping instead,
 create a different one in your |.vimrc| instead using |:nmap|: >
 
   " Instead of <leader>n, use <leader>x.
-  nmap <leader>x <Plug>LoupeClearHighlight
+  nmap <leader>x <Plug>(LoupeClearHighlight)
 
 Note that Loupe will not try to set up its <leader>n mapping if any of the
 following are true:
 
 - A mapping for <leader>n already exists.
-- An alternative mapping for |<Plug>LoupeClearHighlight| has already been set
+- An alternative mapping for |<Plug>(LoupeClearHighlight)| has already been set
   up from a |.vimrc|.
 - The mapping has been suppressed by setting |g:LoupeClearHighlightMap| to 1
   in your |.vimrc|.
@@ -256,10 +256,15 @@ Which he discussed in his "More Instantly Better Vim" presentation at OSCON
 
 HISTORY                                                         *loupe-history*
 
+0.2 (not yet released)
+
+- Renamed the |<Plug>LoupeClearHighlight| mapping to
+  |<Plug>(LoupeClearHighlight)|.
+
 0.1 (5 July 2015)
 
-- initial release, extracted from my dotfiles
-  (https://github.com/wincent/wincent)
+- Initial release, extracted from my dotfiles
+  (https://github.com/wincent/wincent).
 
 
 -----------------------------------------------------------------------------

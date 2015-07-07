@@ -27,15 +27,15 @@ set smartcase    " Case-sensitive search if search string includes a capital let
 " Map <leader>n to clear search highlighting.
 let s:map=exists('g:LoupeClearHighlightMap') ? g:LoupeClearHighlightMap : 1
 if s:map
-  if !hasmapto('<Plug>LoupeClearHighlight') && maparg('<leader>n', 'n') ==# ''
-    nmap <silent> <unique> <leader>n <Plug>LoupeClearHighlight
+  if !hasmapto('<Plug>(LoupeClearHighlight)') && maparg('<leader>n', 'n') ==# ''
+    nmap <silent> <unique> <leader>n <Plug>(LoupeClearHighlight)
   endif
 endif
-nnoremap <silent> <Plug>LoupeClearHighlight
+nnoremap <silent> <Plug>(LoupeClearHighlight)
       \ :nohlsearch<CR>
       \ :call loupe#private#clear_highlight()<CR>
 
-" Make `:nohlsearch` behave like <Plug>LoupeClearHighlight.
+" Make `:nohlsearch` behave like <Plug>(LoupeClearHighlight).
 cabbrev <silent> <expr> noh (getcmdtype() == ':' && getcmdpos() == 4 ? 'noh <bar> call loupe#private#clear_highlight()<CR>' : 'noh')
 cabbrev <silent> <expr> nohl (getcmdtype() == ':' && getcmdpos() == 5 ? 'nohl <bar> call loupe#private#clear_highlight()<CR>' : 'nohl')
 cabbrev <silent> <expr> nohls (getcmdtype() == ':' && getcmdpos() == 6 ? 'nohls <bar> call loupe#private#clear_highlight()<CR>' : 'nohls')
