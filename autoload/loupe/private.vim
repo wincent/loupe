@@ -97,7 +97,7 @@ endfunction
 function! loupe#private#hlmatch() abort
   " When g:loupeHighlight is set (and it is set to "IncSearch" by default), use
   " that highlight group to make the current search result stand out.
-  let l:highlight=exists('g:LoupeHighlightGroup') ? g:LoupeHighlightGroup : 'IncSearch'
+  let l:highlight=get(g:, 'LoupeHighlightGroup', 'IncSearch')
   if empty(l:highlight)
     return
   endif

@@ -25,7 +25,7 @@ set shortmess+=s " Don't echo search wrap messages.
 set smartcase    " Case-sensitive search if search string includes a capital letter.
 
 " Map <leader>n to clear search highlighting.
-let s:map=exists('g:LoupeClearHighlightMap') ? g:LoupeClearHighlightMap : 1
+let s:map=get(g:, 'LoupeClearHighlightMap', 1)
 if s:map
   if !hasmapto('<Plug>(LoupeClearHighlight)') && maparg('<leader>n', 'n') ==# ''
     nmap <silent> <unique> <leader>n <Plug>(LoupeClearHighlight)
@@ -48,7 +48,7 @@ cabbrev <silent> <expr> nohlsearch (getcmdtype() == ':' && getcmdpos() == 11 ? '
 " When g:LoupeVeryMagic is true (and it is by default), make Vim's regexen more
 " Perl-like.
 function s:MagicString()
-  let s:magic=exists('g:LoupeVeryMagic') ? g:LoupeVeryMagic : 1
+  let s:magic=get(g:, 'LoupeVeryMagic', 1)
   return s:magic ? '\v' : ''
 endfunction
 
@@ -62,7 +62,7 @@ endif
 
 " When g:LoupeCenterResults is true (and it is by default), remain vertically
 " centered when moving to next/previous search.
-let s:center=exists('g:LoupeCenterResults') ? g:LoupeCenterResults : 1
+let s:center=get(g:, 'LoupeCenterResults', 1)
 let s:center_string=s:center ? 'zz' : ''
 
 execute 'nnoremap <silent> # #' . s:center_string . ':call loupe#private#hlmatch()<CR>'
