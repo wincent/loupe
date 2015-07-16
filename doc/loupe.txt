@@ -7,10 +7,11 @@ CONTENTS                                                       *loupe-contents*
 3. Options         |loupe-options|
 4. Mappings        |loupe-mappings|
 5. Overrides       |loupe-overrides|
-6. Website         |loupe-website|
-7. License         |loupe-license|
-8. Authors         |loupe-authors|
-9. History         |loupe-history|
+6. Related         |loupe-related|
+7. Website         |loupe-website|
+8. License         |loupe-license|
+9. Authors         |loupe-authors|
+10. History        |loupe-history|
 
 
 INTRO                                                             *loupe-intro*
@@ -197,6 +198,14 @@ To override any of these choices, you can place overrides in an
 
   " Remove unwanted 's' from 'shortmess'.
   set shortmess-=s
+
+
+RELATED                                                         *loupe-related*
+
+Just as Loupe aims to improve the within-file search experience, Ferret does
+the same for multi-file searching and replacing:
+
+  https://github.com/wincent/ferret
 
 
 WEBSITE                                                         *loupe-website*
