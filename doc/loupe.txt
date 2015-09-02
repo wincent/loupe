@@ -151,37 +151,37 @@ OVERRIDES                                                     *loupe-overrides*
 Loupe sets a number of search-related Vim settings to reasonable defaults in
 order to provide a good "out of the box" experience:
 
-                                                               *loupe-history*
+                                                       *loupe-history-override*
   'history'
 
   Increased to 1000, to increase the number of previous searches remembered.
   Note that Loupe only applies this setting if the current value of 'history'
   is less than 1000.
 
-                                                               *loupe-hlsearch*
+                                                      *loupe-hlsearch-override*
   'hlsearch'
 
   Turned on (when there is a previous search pattern, highlight all its
   matches).
 
-                                                              *loupe-incsearch*
+                                                     *loupe-incsearch-override*
   'incsearch'
 
   Turned on (while typing a search command, show where the pattern matches, as
   it was typed so far).
 
-                                                             *loupe-ignorecase*
+                                                    *loupe-ignorecase-override*
   'ignorecase'
 
   Turned on (to ignore case in search patterns).
 
-                                                              *loupe-shortmess*
+                                                     *loupe-shortmess-override*
   'shortmess'
 
   Adds "s", which suppresses the display of "search hit BOTTOM, continuing at
   TOP" and "search hit TOP, continuing at BOTTOM" messages.
 
-                                                              *loupe-smartcase*
+                                                     *loupe-smartcase-override*
   'smartcase'
 
   Turned on (overrides 'ignorecase', making the search pattern case-sensitive
