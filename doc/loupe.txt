@@ -10,8 +10,9 @@ CONTENTS                                                       *loupe-contents*
 6. Related         |loupe-related|
 7. Website         |loupe-website|
 8. License         |loupe-license|
-9. Authors         |loupe-authors|
-10. History        |loupe-history|
+9. Development     |loupe-development|
+10. Authors        |loupe-authors|
+11. History        |loupe-history|
 
 
 INTRO                                                             *loupe-intro*
@@ -247,6 +248,39 @@ INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
 CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
+
+
+DEVELOPMENT                                                 *loupe-development*
+
+Contributing patches ~
+
+Patches can be sent via mail to greg@hurrell.net, or as GitHub pull requests
+at: https://github.com/wincent/loupe/pulls
+
+Cutting a new release ~
+
+At the moment the release process is manual:
+
+- Perform final sanity checks and manual testing
+- Update the |loupe-history| section of the documentation
+- Verify clean work tree: >
+
+    git status
+
+- Tag the release: >
+
+    git tag -s -m "$VERSION release" $VERSION
+
+- Publish the code: >
+
+    git push origin master --follow-tags
+    git push github master --follow-tags
+
+- Produce the release archive: >
+
+    git archive -o loupe-$VERSION.zip HEAD -- .
+
+- Upload to http://www.vim.org/scripts/script.php?script_id=5215
 
 
 AUTHORS                                                         *loupe-authors*
