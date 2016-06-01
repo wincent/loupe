@@ -1,6 +1,6 @@
-![](https://raw.githubusercontent.com/wincent/loupe/media/loupe-small.jpg)
+![Loupe](https://raw.githubusercontent.com/wincent/loupe/media/loupe-small.jpg)
 
-# Loupe
+# Overview
 
 Loupe enhances Vim's `search-commands` in four ways:
 
