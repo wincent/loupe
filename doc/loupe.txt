@@ -4,15 +4,15 @@ CONTENTS                                                        *loupe-contents*
 
 1. Intro          |loupe-intro|
 2. Installation   |loupe-installation|
-3. Overrides      |loupe-overrides|
-4. Related        |loupe-related|
-5. Website        |loupe-website|
-6. License        |loupe-license|
-7. Development    |loupe-development|
-8. Authors        |loupe-authors|
-9. History        |loupe-history|
-10. Mappings      |loupe-mappings|
-11. Options       |loupe-options|
+3. Mappings       |loupe-mappings|
+4. Options        |loupe-options|
+5. Overrides      |loupe-overrides|
+6. Related        |loupe-related|
+7. Website        |loupe-website|
+8. License        |loupe-license|
+9. Development    |loupe-development|
+10. Authors       |loupe-authors|
+11. History       |loupe-history|
 
 INTRO                                                              *loupe-intro*
 
@@ -76,6 +76,77 @@ the following after `cd`-ing into the top-level of your Git superproject:
 To generate help tags under Pathogen, you can do so from inside Vim with:
 >
     :call pathogen#helptags()
+<
+MAPPINGS                                                        *loupe-mappings*
+
+
+                                                   *<Plug>(LoupeClearHighlight)*
+Loupe maps <leader>n to |<Plug>(LoupeClearHighlight)|, which clears all
+visible highlights (like |:nohighlight| does). To use an alternative mapping
+instead, create a different one in your |.vimrc| instead using |:nmap|:
+>
+    " Instead of <leader>n, use <leader>x.
+    nmap <leader>x <Plug>(LoupeClearHighlight)
+<
+Note that Loupe will not try to set up its <leader>n mapping if any of the
+following are true:
+
+- A mapping for <leader>n already exists.
+- An alternative mapping for |<Plug>(LoupeClearHighlight)| has already been
+  set up from a |.vimrc|.
+- The mapping has been suppressed by setting |g:LoupeClearHighlightMap| to 1
+  in your |.vimrc|.
+
+OPTIONS                                                          *loupe-options*
+
+
+                                                         *g:LoupeHighlightGroup*
+|g:LoupeHighlightGroup|                              string (default: IncSearch)
+
+Specifies the |:highlight| group used to emphasize the match currently under
+the cursor for the current search pattern. Defaults to "IncSearch" (ie.
+|hl-IncSearch|). For example:
+>
+    let g:LoupeHighlightGroup='Error'
+<
+To prevent any special highlighting from being applied, set this option to
+"" (ie. the empty string).
+
+
+                                                                 *g:LoupeLoaded*
+|g:LoupeLoaded|                                              any (default: none)
+
+To prevent Loupe from being loaded, set |g:LoupeLoaded| to any value in your
+|.vimrc|. For example:
+>
+    let g:LoupeLoaded=1
+<
+
+                                                      *g:LoupeClearHighlightMap*
+|g:LoupeClearHighlightMap|                                  boolean (default: 1)
+
+Controls whether to set up the |<Plug>(LoupeClearHighlight)| mapping. To
+prevent any mapping from being configured, set to 0:
+>
+    let g:LoupeClearHighlightMap=0
+<
+
+                                                              *g:LoupeVeryMagic*
+|g:LoupeVeryMagic|                                          boolean (default: 1)
+
+Controls whether "very magic" pattern syntax (|/\v|) is applied by default. To
+disable, set to 0:
+>
+    let g:LoupeVeryMagic=0
+<
+
+                                                          *g:LoupeCenterResults*
+|g:LoupeCenterResults|                                      boolean (default: 1)
+
+Controls whether the match's line is vertically centered within the window
+when jumping (via |n|, |N| etc). To disable, set to 0:
+>
+    let g:LoupeCenterResults=0
 <
 OVERRIDES                                                      *loupe-overrides*
 
@@ -242,75 +313,3 @@ HISTORY                                                          *loupe-history*
 
 - Initial release, extracted from my dotfiles
   (https://github.com/wincent/wincent).
-
-MAPPINGS                                                        *loupe-mappings*
-
-
-                                                   *<Plug>(LoupeClearHighlight)*
-Loupe maps <leader>n to |<Plug>(LoupeClearHighlight)|, which clears all
-visible highlights (like |:nohighlight| does). To use an alternative mapping
-instead, create a different one in your |.vimrc| instead using |:nmap|:
->
-    " Instead of <leader>n, use <leader>x.
-    nmap <leader>x <Plug>(LoupeClearHighlight)
-<
-Note that Loupe will not try to set up its <leader>n mapping if any of the
-following are true:
-
-- A mapping for <leader>n already exists.
-- An alternative mapping for |<Plug>(LoupeClearHighlight)| has already been
-  set up from a |.vimrc|.
-- The mapping has been suppressed by setting |g:LoupeClearHighlightMap| to 1
-  in your |.vimrc|.
-
-OPTIONS                                                          *loupe-options*
-
-
-                                                         *g:LoupeHighlightGroup*
-|g:LoupeHighlightGroup|                              string (default: IncSearch)
-
-Specifies the |:highlight| group used to emphasize the match currently under
-the cursor for the current search pattern. Defaults to "IncSearch" (ie.
-|hl-IncSearch|). For example:
->
-    let g:LoupeHighlightGroup='Error'
-<
-To prevent any special highlighting from being applied, set this option to
-"" (ie. the empty string).
-
-
-                                                                 *g:LoupeLoaded*
-|g:LoupeLoaded|                                              any (default: none)
-
-To prevent Loupe from being loaded, set |g:LoupeLoaded| to any value in your
-|.vimrc|. For example:
->
-    let g:LoupeLoaded=1
-<
-
-                                                      *g:LoupeClearHighlightMap*
-|g:LoupeClearHighlightMap|                                  boolean (default: 1)
-
-Controls whether to set up the |<Plug>(LoupeClearHighlight)| mapping. To
-prevent any mapping from being configured, set to 0:
->
-    let g:LoupeClearHighlightMap=0
-<
-
-                                                              *g:LoupeVeryMagic*
-|g:LoupeVeryMagic|                                          boolean (default: 1)
-
-Controls whether "very magic" pattern syntax (|/\v|) is applied by default. To
-disable, set to 0:
->
-    let g:LoupeVeryMagic=0
-<
-
-                                                          *g:LoupeCenterResults*
-|g:LoupeCenterResults|                                      boolean (default: 1)
-
-Controls whether the match's line is vertically centered within the window
-when jumping (via |n|, |N| etc). To disable, set to 0:
->
-    let g:LoupeCenterResults=0
-<

@@ -74,6 +74,8 @@
 " :call pathogen#helptags()
 " ```
 "
+" @footer
+"
 " # Overrides
 "
 " Loupe sets a number of search-related Vim settings to reasonable defaults in

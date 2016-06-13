@@ -51,6 +51,72 @@ To generate help tags under Pathogen, you can do so from inside Vim with:
 :call pathogen#helptags()
 ```
 
+## Mappings<a name="loupe-mappings" href="#user-content-loupe-mappings"></a>
+
+### `<Plug>(LoupeClearHighlight)`<a name="loupe-plugloupeclearhighlight" href="#user-content-loupe-plugloupeclearhighlight"></a>
+
+Loupe maps <leader>n to <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong>, which clears all visible highlights (like <strong>`:nohighlight`</strong> does). To use an alternative mapping instead, create a different one in your <strong>`.vimrc`</strong> instead using <strong>`:nmap`</strong>:
+
+```
+" Instead of <leader>n, use <leader>x.
+nmap <leader>x <Plug>(LoupeClearHighlight)
+```
+
+Note that Loupe will not try to set up its <leader>n mapping if any of the following are true:
+
+- A mapping for <leader>n already exists.
+- An alternative mapping for <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong> has already been set up from a <strong>`.vimrc`</strong>.
+- The mapping has been suppressed by setting <strong>`g:LoupeClearHighlightMap`</strong> to 1 in your <strong>`.vimrc`</strong>.
+
+## Options<a name="loupe-options" href="#user-content-loupe-options"></a>
+
+<p align="right"><a name="gloupehighlightgroup" href="#user-content-gloupehighlightgroup"><code>g:LoupeHighlightGroup</code></a></p>
+### `g:LoupeHighlightGroup` (string, default: IncSearch)<a name="loupe-gloupehighlightgroup-string-default-incsearch" href="#user-content-loupe-gloupehighlightgroup-string-default-incsearch"></a>
+
+Specifies the <strong>`:highlight`</strong> group used to emphasize the match currently under the cursor for the current search pattern. Defaults to "IncSearch" (ie. <strong>`hl-IncSearch`</strong>). For example:
+
+```
+let g:LoupeHighlightGroup='Error'
+```
+
+To prevent any special highlighting from being applied, set this option to "" (ie. the empty string).
+
+<p align="right"><a name="gloupeloaded" href="#user-content-gloupeloaded"><code>g:LoupeLoaded</code></a></p>
+### `g:LoupeLoaded` (any, default: none)<a name="loupe-gloupeloaded-any-default-none" href="#user-content-loupe-gloupeloaded-any-default-none"></a>
+
+To prevent Loupe from being loaded, set <strong>`g:LoupeLoaded`</strong> to any value in your <strong>`.vimrc`</strong>. For example:
+
+```
+let g:LoupeLoaded=1
+```
+
+<p align="right"><a name="gloupeclearhighlightmap" href="#user-content-gloupeclearhighlightmap"><code>g:LoupeClearHighlightMap</code></a></p>
+### `g:LoupeClearHighlightMap` (boolean, default: 1)<a name="loupe-gloupeclearhighlightmap-boolean-default-1" href="#user-content-loupe-gloupeclearhighlightmap-boolean-default-1"></a>
+
+Controls whether to set up the <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong> mapping. To prevent any mapping from being configured, set to 0:
+
+```
+let g:LoupeClearHighlightMap=0
+```
+
+<p align="right"><a name="gloupeverymagic" href="#user-content-gloupeverymagic"><code>g:LoupeVeryMagic</code></a></p>
+### `g:LoupeVeryMagic` (boolean, default: 1)<a name="loupe-gloupeverymagic-boolean-default-1" href="#user-content-loupe-gloupeverymagic-boolean-default-1"></a>
+
+Controls whether "very magic" pattern syntax (<strong>`/\v`</strong>) is applied by default. To disable, set to 0:
+
+```
+let g:LoupeVeryMagic=0
+```
+
+<p align="right"><a name="gloupecenterresults" href="#user-content-gloupecenterresults"><code>g:LoupeCenterResults</code></a></p>
+### `g:LoupeCenterResults` (boolean, default: 1)<a name="loupe-gloupecenterresults-boolean-default-1" href="#user-content-loupe-gloupecenterresults-boolean-default-1"></a>
+
+Controls whether the match's line is vertically centered within the window when jumping (via <strong>`n`</strong>, <strong>`N`</strong> etc). To disable, set to 0:
+
+```
+let g:LoupeCenterResults=0
+```
+
 ## Overrides<a name="loupe-overrides" href="#user-content-loupe-overrides"></a>
 
 Loupe sets a number of search-related Vim settings to reasonable defaults in order to provide a good "out of the box" experience:
@@ -190,69 +256,3 @@ Which he discussed in his "More Instantly Better Vim" presentation at OSCON 2013
 ### 0.1 (5 July 2015)<a name="loupe-01-5-july-2015" href="#user-content-loupe-01-5-july-2015"></a>
 
 - Initial release, extracted from my dotfiles (https://github.com/wincent/wincent).
-
-## Mappings<a name="loupe-mappings" href="#user-content-loupe-mappings"></a>
-
-### `<Plug>(LoupeClearHighlight)`<a name="loupe-plugloupeclearhighlight" href="#user-content-loupe-plugloupeclearhighlight"></a>
-
-Loupe maps <leader>n to <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong>, which clears all visible highlights (like <strong>`:nohighlight`</strong> does). To use an alternative mapping instead, create a different one in your <strong>`.vimrc`</strong> instead using <strong>`:nmap`</strong>:
-
-```
-" Instead of <leader>n, use <leader>x.
-nmap <leader>x <Plug>(LoupeClearHighlight)
-```
-
-Note that Loupe will not try to set up its <leader>n mapping if any of the following are true:
-
-- A mapping for <leader>n already exists.
-- An alternative mapping for <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong> has already been set up from a <strong>`.vimrc`</strong>.
-- The mapping has been suppressed by setting <strong>`g:LoupeClearHighlightMap`</strong> to 1 in your <strong>`.vimrc`</strong>.
-
-## Options<a name="loupe-options" href="#user-content-loupe-options"></a>
-
-<p align="right"><a name="gloupehighlightgroup" href="#user-content-gloupehighlightgroup"><code>g:LoupeHighlightGroup</code></a></p>
-### `g:LoupeHighlightGroup` (string, default: IncSearch)<a name="loupe-gloupehighlightgroup-string-default-incsearch" href="#user-content-loupe-gloupehighlightgroup-string-default-incsearch"></a>
-
-Specifies the <strong>`:highlight`</strong> group used to emphasize the match currently under the cursor for the current search pattern. Defaults to "IncSearch" (ie. <strong>`hl-IncSearch`</strong>). For example:
-
-```
-let g:LoupeHighlightGroup='Error'
-```
-
-To prevent any special highlighting from being applied, set this option to "" (ie. the empty string).
-
-<p align="right"><a name="gloupeloaded" href="#user-content-gloupeloaded"><code>g:LoupeLoaded</code></a></p>
-### `g:LoupeLoaded` (any, default: none)<a name="loupe-gloupeloaded-any-default-none" href="#user-content-loupe-gloupeloaded-any-default-none"></a>
-
-To prevent Loupe from being loaded, set <strong>`g:LoupeLoaded`</strong> to any value in your <strong>`.vimrc`</strong>. For example:
-
-```
-let g:LoupeLoaded=1
-```
-
-<p align="right"><a name="gloupeclearhighlightmap" href="#user-content-gloupeclearhighlightmap"><code>g:LoupeClearHighlightMap</code></a></p>
-### `g:LoupeClearHighlightMap` (boolean, default: 1)<a name="loupe-gloupeclearhighlightmap-boolean-default-1" href="#user-content-loupe-gloupeclearhighlightmap-boolean-default-1"></a>
-
-Controls whether to set up the <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong> mapping. To prevent any mapping from being configured, set to 0:
-
-```
-let g:LoupeClearHighlightMap=0
-```
-
-<p align="right"><a name="gloupeverymagic" href="#user-content-gloupeverymagic"><code>g:LoupeVeryMagic</code></a></p>
-### `g:LoupeVeryMagic` (boolean, default: 1)<a name="loupe-gloupeverymagic-boolean-default-1" href="#user-content-loupe-gloupeverymagic-boolean-default-1"></a>
-
-Controls whether "very magic" pattern syntax (<strong>`/\v`</strong>) is applied by default. To disable, set to 0:
-
-```
-let g:LoupeVeryMagic=0
-```
-
-<p align="right"><a name="gloupecenterresults" href="#user-content-gloupecenterresults"><code>g:LoupeCenterResults</code></a></p>
-### `g:LoupeCenterResults` (boolean, default: 1)<a name="loupe-gloupecenterresults-boolean-default-1" href="#user-content-loupe-gloupecenterresults-boolean-default-1"></a>
-
-Controls whether the match's line is vertically centered within the window when jumping (via <strong>`n`</strong>, <strong>`N`</strong> etc). To disable, set to 0:
-
-```
-let g:LoupeCenterResults=0
-```
