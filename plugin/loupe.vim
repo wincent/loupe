@@ -1,8 +1,261 @@
 " Copyright 2015-present Greg Hurrell. All rights reserved.
 " Licensed under the terms of the BSD 2-clause license.
 
-" Provide users with means to prevent loading, as recommended in `:h
-" write-plugin`.
+""
+"
+" @plugin loupe Loupe plug-in for Vim
+"
+" # Intro
+"
+" > "loupe (noun)<br>
+" > a small magnifying glass used by jewelers and watchmakers."
+"
+"                                                               *loupe-features*
+" Loupe enhances Vim's |search-commands| in four ways:
+"
+" ## 1. Makes the currently selected match easier to see
+"
+" When searching using |/|, |?|, |star|, |#|, |n|, |N| or similar, it can be
+" hard to see the "current" match from among all the matches that 'hlsearch'
+" highlights. Loupe makes the currently selected match easier to see by:
+"
+" - Applying a different |:highlight| group (by default, |hl-IncSearch|) to the
+"   match under the cursor.
+" - Keeping the matching line centered within the window when jumping between
+"   matches with |n| and |N|.
+"
+" ## 2. Applies sane pattern syntax by default
+"
+" Loupe makes "very magic" (|/\v|) syntax apply by default when searching. This
+" is true even if you initiate a search via a novel means, such as from a visual
+" selection or with a complicated |:range| prefix.
+"
+" This means that you can use a pattern syntax closer to the familiar regular
+" expression syntax from languages such as Perl, Ruby, JavaScript (indeed, most
+" other modern languages that support regular expressions).
+"
+" ## 3. Provides a shortcut to remove search highlighting
+"
+" Loupe maps <leader>n to quickly remove all 'hlsearch' highlighting (although
+" you can provide an alternative mapping of your choosing or suppress the
+" feature entirely).
+"
+" ## 4. Sensible defaults for search-related features
+"
+" Loupe provides reasonable defaults for most search-related Vim settings to
+" provide a good "out of the box" experience. For more details, or to see how to
+" override Loupe's settings, see |loupe-overrides|.
+"
+"
+" # Installation
+"
+" To install Loupe, use your plug-in management system of choice.
+"
+" If you don't have a "plug-in management system of choice", I recommend
+" Pathogen (https://github.com/tpope/vim-pathogen) due to its simplicity and
+" robustness. Assuming that you have Pathogen installed and configured, and that
+" you want to install Loupe into `~/.vim/bundle`, you can do so with:
+"
+" ```
+" git clone https://github.com/wincent/loupe.git ~/.vim/bundle/loupe
+" ```
+"
+" Alternatively, if you use a Git submodule for each Vim plug-in, you could do
+" the following after `cd`-ing into the top-level of your Git superproject:
+"
+" ```
+" git submodule add https://github.com/wincent/loupe.git ~/vim/bundle/loupe
+" git submodule init
+" ```
+"
+" To generate help tags under Pathogen, you can do so from inside Vim with:
+"
+" ```
+" :call pathogen#helptags()
+" ```
+"
+" # Overrides
+"
+" Loupe sets a number of search-related Vim settings to reasonable defaults in
+" order to provide a good "out of the box" experience:
+"
+" @indent
+"                                                        *loupe-history-override*
+"   'history'
+"
+"   Increased to 1000, to increase the number of previous searches remembered.
+"   Note that Loupe only applies this setting if the current value of 'history'
+"   is less than 1000.
+"
+"                                                       *loupe-hlsearch-override*
+"   'hlsearch'
+"
+"   Turned on (when there is a previous search pattern, highlight all its
+"   matches).
+"
+"                                                      *loupe-incsearch-override*
+"   'incsearch'
+"
+"   Turned on (while typing a search command, show where the pattern matches, as
+"   it was typed so far).
+"
+"                                                     *loupe-ignorecase-override*
+"   'ignorecase'
+"
+"   Turned on (to ignore case in search patterns).
+"
+"                                                      *loupe-shortmess-override*
+"   'shortmess'
+"
+"   Adds "s", which suppresses the display of "search hit BOTTOM, continuing at
+"   TOP" and "search hit TOP, continuing at BOTTOM" messages.
+"
+"                                                      *loupe-smartcase-override*
+"   'smartcase'
+"
+"   Turned on (overrides 'ignorecase', making the search pattern case-sensitive
+"   whenever it containers uppercase characters).
+"
+" @dedent
+"
+" To override any of these choices, you can place overrides in an
+" |after-directory| (ie. `~/.vim/after/plugin/loupe.vim`). For example:
+"
+" ```
+" " Override Loupe's 'history' setting from 1000 to 10000.
+" set history=10000
+"
+" " Reset Loupe's 'incsearch' back to Vim default.
+" set incsearch&vim
+"
+" " Remove unwanted 's' from 'shortmess'.
+" set shortmess-=s
+" ```
+"
+" # Related
+"
+" Just as Loupe aims to improve the within-file search experience, Ferret does
+" the same for multi-file searching and replacing:
+"
+" - https://github.com/wincent/ferret
+"
+" # Website
+"
+" The official Loupe source code repo is at:
+"
+" - http://git.wincent.com/loupe.git
+"
+" A mirror exists at:
+"
+" - https://github.com/wincent/loupe
+"
+" Official releases are listed at:
+"
+" - http://www.vim.org/scripts/script.php?script_id=5215
+"
+"
+" # License
+"
+" Copyright 2015-present Greg Hurrell. All rights reserved.
+"
+" Redistribution and use in source and binary forms, with or without
+" modification, are permitted provided that the following conditions are met:
+"
+" 1. Redistributions of source code must retain the above copyright notice,
+"    this list of conditions and the following disclaimer.
+"
+" 2. Redistributions in binary form must reproduce the above copyright notice,
+"    this list of conditions and the following disclaimer in the documentation
+"    and/or other materials provided with the distribution.
+"
+" THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+" IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+" ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
+" LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+" CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+" SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+" INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+" CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+" ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+" POSSIBILITY OF SUCH DAMAGE.
+"
+"
+" # Development
+"
+" ## Contributing patches
+"
+" Patches can be sent via mail to greg@hurrell.net, or as GitHub pull requests
+" at: https://github.com/wincent/loupe/pulls
+"
+" ## Cutting a new release
+"
+" At the moment the release process is manual:
+"
+" - Perform final sanity checks and manual testing
+" - Update the |loupe-history| section of the documentation
+" - Verify clean work tree:
+"
+" ```
+" git status
+" ```
+"
+" - Tag the release:
+"
+" ```
+" git tag -s -m "$VERSION release" $VERSION
+" ```
+"
+" - Publish the code:
+"
+" ```
+" git push origin master --follow-tags
+" git push github master --follow-tags
+" ```
+"
+" - Produce the release archive:
+"
+" ```
+" git archive -o loupe-$VERSION.zip HEAD -- .
+" ```
+"
+" - Upload to http://www.vim.org/scripts/script.php?script_id=5215
+"
+" # Authors
+"
+" Loupe is written and maintained by Greg Hurrell <greg@hurrell.net>.
+"
+" The original idea for the |g:LoupeHighlightGroup| feature was taken from
+" Damian Conway's Vim set-up:
+"
+" - https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/plugin/hlnext.vim
+"
+" Which he discussed in his "More Instantly Better Vim" presentation at OSCON
+" 2013:
+"
+" - https://www.youtube.com/watch?v=aHm36-na4-4
+"
+" # History
+"
+" ## 1.0 (28 December 2015)
+"
+" - Renamed the |<Plug>LoupeClearHighlight| mapping to
+"   |<Plug>(LoupeClearHighlight)|.
+"
+" ## 0.1 (5 July 2015)
+"
+" - Initial release, extracted from my dotfiles
+"   (https://github.com/wincent/wincent).
+
+""
+" @option g:LoupeLoaded any
+"
+" To prevent Loupe from being loaded, set |g:LoupeLoaded| to any value in your
+" |.vimrc|. For example:
+"
+" ```
+" let g:LoupeLoaded=1
+" ```
 if exists('g:LoupeLoaded') || &compatible || v:version < 700
   finish
 endif
@@ -24,13 +277,42 @@ set ignorecase   " Ignore case when searching.
 set shortmess+=s " Don't echo search wrap messages.
 set smartcase    " Case-sensitive search if search string includes a capital letter.
 
-" Map <leader>n to clear search highlighting.
+""
+" @option g:LoupeClearHighlightMap boolean 1
+"
+" Controls whether to set up the |<Plug>(LoupeClearHighlight)| mapping. To
+"  prevent any mapping from being configured, set to 0:
+"
+" ```
+" let g:LoupeClearHighlightMap=0
+" ```
 let s:map=get(g:, 'LoupeClearHighlightMap', 1)
 if s:map
   if !hasmapto('<Plug>(LoupeClearHighlight)') && maparg('<leader>n', 'n') ==# ''
     nmap <silent> <unique> <leader>n <Plug>(LoupeClearHighlight)
   endif
 endif
+
+""
+" @mapping <Plug>(LoupeClearHighlight)
+"
+" Loupe maps <leader>n to |<Plug>(LoupeClearHighlight)|, which clears all
+" visible highlights (like |:nohighlight| does). To use an alternative mapping
+" instead, create a different one in your |.vimrc| instead using |:nmap|:
+"
+" ```
+" " Instead of <leader>n, use <leader>x.
+" nmap <leader>x <Plug>(LoupeClearHighlight)
+" ```
+"
+" Note that Loupe will not try to set up its <leader>n mapping if any of the
+" following are true:
+"
+" - A mapping for <leader>n already exists.
+" - An alternative mapping for |<Plug>(LoupeClearHighlight)| has already been set
+"   up from a |.vimrc|.
+" - The mapping has been suppressed by setting |g:LoupeClearHighlightMap| to 1
+"   in your |.vimrc|.
 nnoremap <silent> <Plug>(LoupeClearHighlight)
       \ :nohlsearch<CR>
       \ :call loupe#private#clear_highlight()<CR>
@@ -45,8 +327,15 @@ cabbrev <silent> <expr> nohlsear (getcmdtype() == ':' && getcmdpos() == 9 ? 'noh
 cabbrev <silent> <expr> nohlsearc (getcmdtype() == ':' && getcmdpos() == 10 ? 'nohlsearc <bar> call loupe#private#clear_highlight()<CR>' : 'nohlsearc')
 cabbrev <silent> <expr> nohlsearch (getcmdtype() == ':' && getcmdpos() == 11 ? 'nohlsearch <bar> call loupe#private#clear_highlight()<CR>' : 'nohlsearch')
 
-" When g:LoupeVeryMagic is true (and it is by default), make Vim's regexen more
-" Perl-like.
+""
+" @option g:LoupeVeryMagic boolean 1
+"
+" Controls whether "very magic" pattern syntax (|/\v|) is applied by default.
+" To disable, set to 0:
+"
+" ```
+" let g:LoupeVeryMagic=0
+" ```
 function s:MagicString()
   let s:magic=get(g:, 'LoupeVeryMagic', 1)
   return s:magic ? '\v' : ''
@@ -60,8 +349,15 @@ if !empty(s:MagicString())
   cnoremap <expr> / loupe#private#very_magic_slash()
 endif
 
-" When g:LoupeCenterResults is true (and it is by default), remain vertically
-" centered when moving to next/previous search.
+""
+" @option g:LoupeCenterResults boolean 1
+"
+" Controls whether the match's line is vertically centered within the window
+" when jumping (via |n|, |N| etc). To disable, set to 0:
+"
+" ```
+" let g:LoupeCenterResults=0
+" ```
 let s:center=get(g:, 'LoupeCenterResults', 1)
 let s:center_string=s:center ? 'zz' : ''
 

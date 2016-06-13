@@ -100,8 +100,18 @@ endfunction
 
 " Apply highlighting to the current search match.
 function! loupe#private#hlmatch() abort
-  " When g:loupeHighlight is set (and it is set to "IncSearch" by default), use
-  " that highlight group to make the current search result stand out.
+  ""
+  " @option g:LoupeHighlightGroup string IncSearch
+  " Specifies the |:highlight| group used to emphasize the match currently under
+  " the cursor for the current search pattern. Defaults to "IncSearch" (ie.
+  " |hl-IncSearch|). For example:
+  "
+  " ```
+  " let g:LoupeHighlightGroup='Error'
+  " ```
+  "
+  " To prevent any special highlighting from being applied, set this option to
+  " "" (ie. the empty string).
   let l:highlight=get(g:, 'LoupeHighlightGroup', 'IncSearch')
   if empty(l:highlight)
     return
