@@ -243,6 +243,10 @@
 "
 " # History
 "
+" master (not yet released)
+"
+" - Add support for special delimiters with |:substitute| command.
+"
 " ## 1.0 (28 December 2015)
 "
 " - Renamed the |<Plug>LoupeClearHighlight| mapping to
@@ -352,7 +356,37 @@ nnoremap <expr> ? loupe#private#prepare_highlight('?' . <SID>MagicString())
 xnoremap <expr> / loupe#private#prepare_highlight('/' . <SID>MagicString())
 xnoremap <expr> ? loupe#private#prepare_highlight('?' . <SID>MagicString())
 if !empty(s:MagicString())
-  cnoremap <expr> / loupe#private#very_magic_slash()
+  " Any single-byte character may be used as a delimiter except \, ", | and
+  " alphanumerics. See `:h E146`.
+  cnoremap <expr> ! loupe#private#very_magic_slash('!')
+  cnoremap <expr> # loupe#private#very_magic_slash('#')
+  cnoremap <expr> $ loupe#private#very_magic_slash('$')
+  cnoremap <expr> % loupe#private#very_magic_slash('%')
+  cnoremap <expr> & loupe#private#very_magic_slash('&')
+  cnoremap <expr> ' loupe#private#very_magic_slash("'")
+  cnoremap <expr> ( loupe#private#very_magic_slash('(')
+  cnoremap <expr> ) loupe#private#very_magic_slash(')')
+  cnoremap <expr> * loupe#private#very_magic_slash('*')
+  cnoremap <expr> + loupe#private#very_magic_slash('+')
+  cnoremap <expr> , loupe#private#very_magic_slash(',')
+  cnoremap <expr> - loupe#private#very_magic_slash('-')
+  cnoremap <expr> . loupe#private#very_magic_slash('.')
+  cnoremap <expr> / loupe#private#very_magic_slash('/')
+  cnoremap <expr> : loupe#private#very_magic_slash(':')
+  cnoremap <expr> ; loupe#private#very_magic_slash(';')
+  cnoremap <expr> < loupe#private#very_magic_slash('<')
+  cnoremap <expr> = loupe#private#very_magic_slash('=')
+  cnoremap <expr> > loupe#private#very_magic_slash('>')
+  cnoremap <expr> ? loupe#private#very_magic_slash('?')
+  cnoremap <expr> @ loupe#private#very_magic_slash('@')
+  cnoremap <expr> [ loupe#private#very_magic_slash('[')
+  cnoremap <expr> ] loupe#private#very_magic_slash(']')
+  cnoremap <expr> ^ loupe#private#very_magic_slash('^')
+  cnoremap <expr> _ loupe#private#very_magic_slash('_')
+  cnoremap <expr> ` loupe#private#very_magic_slash('`')
+  cnoremap <expr> { loupe#private#very_magic_slash('{')
+  cnoremap <expr> } loupe#private#very_magic_slash('}')
+  cnoremap <expr> ~ loupe#private#very_magic_slash('~')
 endif
 
 ""

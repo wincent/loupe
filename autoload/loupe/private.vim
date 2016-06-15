@@ -3,20 +3,22 @@
 
 " Dynamically returns "/" or "/\v" depending on the location of the just-typed
 " "/" within the command-line. Only "/" that looks to be at the start of a
-" command gets replaced.
+" command gets replaced. The "slash" is itself configurable via the `slash`
+" argument, meaning that this function can be used in conjunction with other
+" pattern delimiters like "?" and "@" etc (ie. "?" -> "?\v", "@" -> "@\v").
 "
 " Doesn't handle the full list of possible range types (specified in `:h
 " cmdline-ranges`), but catches the most common ones.
-function! loupe#private#very_magic_slash() abort
+function! loupe#private#very_magic_slash(slash) abort
   if getcmdtype() != ':'
-    return '/'
+    return a:slash
   endif
 
   " For simplicity, only consider "/" typed at the end of the command-line.
   let l:pos=getcmdpos()
   let l:cmd=getcmdline()
   if len(l:cmd) + 1 != l:pos
-    return '/'
+    return a:slash
   endif
 
   " Skip over ranges
@@ -30,10 +32,10 @@ function! loupe#private#very_magic_slash() abort
   endwhile
 
   if index(['g', 's', 'v'], l:cmd) != -1
-    return loupe#private#prepare_highlight('/\v')
+    return loupe#private#prepare_highlight(a:slash . '\v')
   endif
 
-  return '/'
+  return a:slash
 endfunction
 
 function! s:strip_ranges(cmdline)
