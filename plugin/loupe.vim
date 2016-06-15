@@ -79,7 +79,8 @@
 " # Overrides
 "
 " Loupe sets a number of search-related Vim settings to reasonable defaults in
-" order to provide a good "out of the box" experience:
+" order to provide a good "out of the box" experience. The following overrides
+" will be set unless suppressed or overridden (see |loupe-suppress-overrides|):
 "
 " @indent
 "                                                        *loupe-history-override*
@@ -119,6 +120,9 @@
 "   whenever it containers uppercase characters).
 "
 " @dedent
+"
+"                                                      *loupe-suppress-overrides*
+" ## Preventing Loupe overrides from taking effect
 "
 " To override any of these choices, you can place overrides in an
 " |after-directory| (ie. `~/.vim/after/plugin/loupe.vim`). For example:

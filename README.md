@@ -119,7 +119,7 @@ let g:LoupeCenterResults=0
 
 ## Overrides<a name="loupe-overrides" href="#user-content-loupe-overrides"></a>
 
-Loupe sets a number of search-related Vim settings to reasonable defaults in order to provide a good "out of the box" experience:
+Loupe sets a number of search-related Vim settings to reasonable defaults in order to provide a good "out of the box" experience. The following overrides will be set unless suppressed or overridden (see <strong>[`loupe-suppress-overrides`](#user-content-loupe-suppress-overrides)</strong>):
 
 <p align="right"><a name="loupe-history-override" href="#user-content-loupe-history-override"><code>loupe-history-override</code></a></p>
 'history'
@@ -150,6 +150,9 @@ Adds "s", which suppresses the display of "search hit BOTTOM, continuing at TOP"
 'smartcase'
 
 Turned on (overrides 'ignorecase', making the search pattern case-sensitive whenever it containers uppercase characters).
+
+<p align="right"><a name="loupe-suppress-overrides" href="#user-content-loupe-suppress-overrides"><code>loupe-suppress-overrides</code></a></p>
+### Preventing Loupe overrides from taking effect<a name="loupe-preventing-loupe-overrides-from-taking-effect" href="#user-content-loupe-preventing-loupe-overrides-from-taking-effect"></a>
 
 To override any of these choices, you can place overrides in an <strong>`after-directory`</strong> (ie. `~/.vim/after/plugin/loupe.vim`). For example:
 

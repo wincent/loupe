@@ -151,7 +151,8 @@ when jumping (via |n|, |N| etc). To disable, set to 0:
 OVERRIDES                                                      *loupe-overrides*
 
 Loupe sets a number of search-related Vim settings to reasonable defaults in
-order to provide a good "out of the box" experience:
+order to provide a good "out of the box" experience. The following overrides
+will be set unless suppressed or overridden (see |loupe-suppress-overrides|):
 
 
                                                         *loupe-history-override*
@@ -194,6 +195,10 @@ TOP" and "search hit TOP, continuing at BOTTOM" messages.
 
 Turned on (overrides 'ignorecase', making the search pattern case-sensitive
 whenever it containers uppercase characters).
+
+
+                                                      *loupe-suppress-overrides*
+Preventing Loupe overrides from taking effect ~
 
 To override any of these choices, you can place overrides in an
 |after-directory| (ie. `~/.vim/after/plugin/loupe.vim`). For example:
