@@ -243,8 +243,9 @@
 "
 " # History
 "
-" master (not yet released)
+" 1.1 (15 June 2016)
 "
+" - Make compatible with older versions of Vim that do not have |v:hlsearch|.
 " - Add support for special delimiters with |:substitute| command.
 "
 " ## 1.0 (28 December 2015)

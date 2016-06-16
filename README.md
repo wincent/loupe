@@ -252,6 +252,11 @@ Which he discussed in his "More Instantly Better Vim" presentation at OSCON 2013
 
 ## History<a name="loupe-history" href="#user-content-loupe-history"></a>
 
+1.1 (15 June 2016)
+
+- Make compatible with older versions of Vim that do not have <strong>`v:hlsearch`</strong>.
+- Add support for special delimiters with <strong>`:substitute`</strong> command.
+
 ### 1.0 (28 December 2015)<a name="loupe-10-28-december-2015" href="#user-content-loupe-10-28-december-2015"></a>
 
 - Renamed the <strong>`<Plug>LoupeClearHighlight`</strong> mapping to <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong>.
