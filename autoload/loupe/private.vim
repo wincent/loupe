@@ -95,7 +95,7 @@ endfunction
 " from another window and we should clean up the straggling match and the
 " window-local variable.
 function! loupe#private#cleanup() abort
-  if !v:hlsearch
+  if !exists('v:hlsearch') || !v:hlsearch
     call loupe#private#clear_highlight()
   endif
 endfunction
