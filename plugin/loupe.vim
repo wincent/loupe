@@ -297,8 +297,8 @@ set smartcase    " Case-sensitive search if search string includes a capital let
 " ```
 " let g:LoupeClearHighlightMap=0
 " ```
-let s:map=get(g:, 'LoupeClearHighlightMap', 1)
-if s:map
+let s:clear=get(g:, 'LoupeClearHighlightMap', 1)
+if s:clear
   if !hasmapto('<Plug>(LoupeClearHighlight)') && maparg('<leader>n', 'n') ==# ''
     nmap <silent> <unique> <leader>n <Plug>(LoupeClearHighlight)
   endif
@@ -390,24 +390,33 @@ if !empty(s:MagicString())
   cnoremap <expr> ~ loupe#private#very_magic_slash('~')
 endif
 
-""
-" @option g:LoupeCenterResults boolean 1
-"
-" Controls whether the match's line is vertically centered within the window
-" when jumping (via |n|, |N| etc). To disable, set to 0:
-"
-" ```
-" let g:LoupeCenterResults=0
-" ```
-let s:center=get(g:, 'LoupeCenterResults', 1)
-let s:center_string=s:center ? 'zz' : ''
+function! s:map(keys)
+  ""
+  " @option g:LoupeCenterResults boolean 1
+  "
+  " Controls whether the match's line is vertically centered within the window
+  " when jumping (via |n|, |N| etc). To disable, set to 0:
+  "
+  " ```
+  " let g:LoupeCenterResults=0
+  " ```
+  let s:center=get(g:, 'LoupeCenterResults', 1)
+  let s:center_string=s:center ? 'zz' : ''
 
-execute 'nnoremap <silent> # #' . s:center_string . ':call loupe#private#hlmatch()<CR>'
-execute 'nnoremap <silent> * *' . s:center_string . ':call loupe#private#hlmatch()<CR>'
-execute 'nnoremap <silent> N N' . s:center_string . ':call loupe#private#hlmatch()<CR>'
-execute 'nnoremap <silent> g# g#' . s:center_string . ':call loupe#private#hlmatch()<CR>'
-execute 'nnoremap <silent> g* g*' . s:center_string . ':call loupe#private#hlmatch()<CR>'
-execute 'nnoremap <silent> n n' . s:center_string . ':call loupe#private#hlmatch()<CR>'
+  execute 'nnoremap <silent> ' .
+        \ a:keys .
+        \ ' ' .
+        \ a:keys .
+        \ s:center_string .
+        \ ':call loupe#private#hlmatch()<CR>'
+endfunction
+
+call s:map('#')
+call s:map('*')
+call s:map('N')
+call s:map('g#')
+call s:map('g*')
+call s:map('n')
 
 " Clean-up stray `matchadd()` vestiges.
 if has('autocmd') && has('extra_search')
