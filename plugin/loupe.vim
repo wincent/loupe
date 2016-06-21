@@ -390,7 +390,7 @@ if !empty(s:MagicString())
   cnoremap <expr> ~ loupe#private#very_magic_slash('~')
 endif
 
-function! s:map(keys)
+function! s:map(keys, name)
   ""
   " @option g:LoupeCenterResults boolean 1
   "
@@ -403,20 +403,93 @@ function! s:map(keys)
   let s:center=get(g:, 'LoupeCenterResults', 1)
   let s:center_string=s:center ? 'zz' : ''
 
-  execute 'nnoremap <silent> ' .
-        \ a:keys .
+  if !hasmapto('<Plug>(Loupe' . a:name . ')')
+    execute 'nmap <silent> ' . a:keys . ' <Plug>(Loupe' . a:name . ')'
+  endif
+  execute 'nnoremap <silent> <Plug>(Loupe' . a:name . ')' .
         \ ' ' .
         \ a:keys .
         \ s:center_string .
         \ ':call loupe#private#hlmatch()<CR>'
 endfunction
 
-call s:map('#')
-call s:map('*')
-call s:map('N')
-call s:map('g#')
-call s:map('g*')
-call s:map('n')
+""
+" @mapping <Plug>(LoupeOctothorpe)
+"
+" Loupe maps |#| to |<Plug>(LoupeOctothorpe)| in order to implement custom
+" highlighting and line-centering for the current match.
+"
+" To prevent this from happening, create an alternate mapping in your |.vimrc|:
+"
+" ```
+" nmap <Nop> <Plug>(LoupeOctothorpe)
+" ```
+call s:map('#', 'Octothorpe')
+
+""
+" @mapping <Plug>(LoupeStar)
+"
+" Loupe maps |star| to |<Plug>(LoupeStar)| in order to implement custom
+" highlighting and line-centering for the current match.
+"
+" To prevent this from happening, create an alternate mapping in your |.vimrc|:
+"
+" ```
+" nmap <Nop> <Plug>(LoupeStar)
+" ```
+call s:map('*', 'Star')
+
+""
+" @mapping <Plug>(LoupeN)
+"
+" Loupe maps |N| to |<Plug>(LoupeN)| in order to implement custom
+" highlighting and line-centering for the current match.
+"
+" To prevent this from happening, create an alternate mapping in your |.vimrc|:
+"
+" ```
+" nmap <Nop> <Plug>(LoupeN)
+" ```
+call s:map('N', 'N')
+
+""
+" @mapping <Plug>(LoupeGOctothorpe)
+"
+" Loupe maps |g#| to |<Plug>(LoupeGOctothorpe)| in order to implement custom
+" highlighting and line-centering for the current match.
+"
+" To prevent this from happening, create an alternate mapping in your |.vimrc|:
+"
+" ```
+" nmap <Nop> <Plug>(LoupeGOctothorpe)
+" ```
+call s:map('g#', 'GOctothorpe')
+
+""
+" @mapping <Plug>(LoupeGStar)
+"
+" Loupe maps |gstar| to |<Plug>(LoupeGStar)| in order to implement custom
+" highlighting and line-centering for the current match.
+"
+" To prevent this from happening, create an alternate mapping in your |.vimrc|:
+"
+" ```
+" nmap <Nop> <Plug>(LoupeGStar)
+" ```
+call s:map('g*', 'GStar')
+
+""
+" @mapping <Plug>(Loupen)
+"
+" Loupe maps |n| to |<Plug>(Loupen)| in order to implement custom
+" highlighting and line-centering for the current match.
+"
+" To prevent this from happening, create an alternate mapping in your |.vimrc|:
+"
+" ```
+" nmap <Nop> <Plug>(Loupen)
+" ```
+call s:map('n', 'n')
 
 " Clean-up stray `matchadd()` vestiges.
 if has('autocmd') && has('extra_search')
