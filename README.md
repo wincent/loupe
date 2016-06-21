@@ -68,6 +68,66 @@ Note that Loupe will not try to set up its <leader>n mapping if any of the follo
 - An alternative mapping for <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong> has already been set up from a <strong>`.vimrc`</strong>.
 - The mapping has been suppressed by setting <strong>`g:LoupeClearHighlightMap`</strong> to 1 in your <strong>`.vimrc`</strong>.
 
+### `<Plug>(LoupeOctothorpe)`<a name="loupe-plugloupeoctothorpe" href="#user-content-loupe-plugloupeoctothorpe"></a>
+
+Loupe maps <strong>`#`</strong> to <strong>[`<Plug>(LoupeOctothorpe)`](#user-content-plugloupeoctothorpe)</strong> in order to implement custom highlighting and line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your <strong>`.vimrc`</strong>:
+
+```
+nmap <Nop> <Plug>(LoupeOctothorpe)
+```
+
+### `<Plug>(LoupeStar)`<a name="loupe-plugloupestar" href="#user-content-loupe-plugloupestar"></a>
+
+Loupe maps <strong>`star`</strong> to <strong>[`<Plug>(LoupeStar)`](#user-content-plugloupestar)</strong> in order to implement custom highlighting and line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your <strong>`.vimrc`</strong>:
+
+```
+nmap <Nop> <Plug>(LoupeStar)
+```
+
+### `<Plug>(LoupeN)`<a name="loupe-plugloupen" href="#user-content-loupe-plugloupen"></a>
+
+Loupe maps <strong>`N`</strong> to <strong>[`<Plug>(LoupeN)`](#user-content-plugloupen)</strong> in order to implement custom highlighting and line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your <strong>`.vimrc`</strong>:
+
+```
+nmap <Nop> <Plug>(LoupeN)
+```
+
+### `<Plug>(LoupeGOctothorpe)`<a name="loupe-plugloupegoctothorpe" href="#user-content-loupe-plugloupegoctothorpe"></a>
+
+Loupe maps <strong>`g#`</strong> to <strong>[`<Plug>(LoupeGOctothorpe)`](#user-content-plugloupegoctothorpe)</strong> in order to implement custom highlighting and line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your <strong>`.vimrc`</strong>:
+
+```
+nmap <Nop> <Plug>(LoupeGOctothorpe)
+```
+
+### `<Plug>(LoupeGStar)`<a name="loupe-plugloupegstar" href="#user-content-loupe-plugloupegstar"></a>
+
+Loupe maps <strong>`gstar`</strong> to <strong>[`<Plug>(LoupeGStar)`](#user-content-plugloupegstar)</strong> in order to implement custom highlighting and line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your <strong>`.vimrc`</strong>:
+
+```
+nmap <Nop> <Plug>(LoupeGStar)
+```
+
+### `<Plug>(Loupen)`<a name="loupe-plugloupen" href="#user-content-loupe-plugloupen"></a>
+
+Loupe maps <strong>`n`</strong> to <strong>[`<Plug>(Loupen)`](#user-content-plugloupen)</strong> in order to implement custom highlighting and line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your <strong>`.vimrc`</strong>:
+
+```
+nmap <Nop> <Plug>(Loupen)
+```
+
 ## Options<a name="loupe-options" href="#user-content-loupe-options"></a>
 
 <p align="right"><a name="gloupehighlightgroup" href="#user-content-gloupehighlightgroup"><code>g:LoupeHighlightGroup</code></a></p>

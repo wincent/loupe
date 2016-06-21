@@ -97,6 +97,60 @@ following are true:
 - The mapping has been suppressed by setting |g:LoupeClearHighlightMap| to 1
   in your |.vimrc|.
 
+
+                                                       *<Plug>(LoupeOctothorpe)*
+Loupe maps |#| to |<Plug>(LoupeOctothorpe)| in order to implement custom
+highlighting and line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your |.vimrc|:
+>
+    nmap <Nop> <Plug>(LoupeOctothorpe)
+<
+
+                                                             *<Plug>(LoupeStar)*
+Loupe maps |star| to |<Plug>(LoupeStar)| in order to implement custom
+highlighting and line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your |.vimrc|:
+>
+    nmap <Nop> <Plug>(LoupeStar)
+<
+
+                                                                *<Plug>(LoupeN)*
+Loupe maps |N| to |<Plug>(LoupeN)| in order to implement custom highlighting and
+line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your |.vimrc|:
+>
+    nmap <Nop> <Plug>(LoupeN)
+<
+
+                                                      *<Plug>(LoupeGOctothorpe)*
+Loupe maps |g#| to |<Plug>(LoupeGOctothorpe)| in order to implement custom
+highlighting and line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your |.vimrc|:
+>
+    nmap <Nop> <Plug>(LoupeGOctothorpe)
+<
+
+                                                            *<Plug>(LoupeGStar)*
+Loupe maps |gstar| to |<Plug>(LoupeGStar)| in order to implement custom
+highlighting and line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your |.vimrc|:
+>
+    nmap <Nop> <Plug>(LoupeGStar)
+<
+
+                                                                *<Plug>(Loupen)*
+Loupe maps |n| to |<Plug>(Loupen)| in order to implement custom highlighting and
+line-centering for the current match.
+
+To prevent this from happening, create an alternate mapping in your |.vimrc|:
+>
+    nmap <Nop> <Plug>(Loupen)
+<
 OPTIONS                                                          *loupe-options*
 
 
