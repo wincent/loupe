@@ -410,7 +410,7 @@ function! s:map(keys, name)
         \ ' ' .
         \ a:keys .
         \ s:center_string .
-        \ ':call loupe#private#hlmatch()<CR>'
+        \ ':call loupe#hlmatch()<CR>'
 endfunction
 
 ""
