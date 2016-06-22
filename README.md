@@ -319,7 +319,7 @@ Which he discussed in his "More Instantly Better Vim" presentation at OSCON 2013
 
 ## History<a name="loupe-history" href="#user-content-loupe-history"></a>
 
-1.1 (15 June 2016)
+### 1.1 (15 June 2016)<a name="loupe-11-15-june-2016" href="#user-content-loupe-11-15-june-2016"></a>
 
 - Make compatible with older versions of Vim that do not have <strong>`v:hlsearch`</strong>.
 - Add support for special delimiters with <strong>`:substitute`</strong> command.
