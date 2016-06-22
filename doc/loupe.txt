@@ -6,13 +6,14 @@ CONTENTS                                                        *loupe-contents*
 2. Installation   |loupe-installation|
 3. Mappings       |loupe-mappings|
 4. Options        |loupe-options|
-5. Overrides      |loupe-overrides|
-6. Related        |loupe-related|
-7. Website        |loupe-website|
-8. License        |loupe-license|
-9. Development    |loupe-development|
-10. Authors       |loupe-authors|
-11. History       |loupe-history|
+5. Functions      |loupe-functions|
+6. Overrides      |loupe-overrides|
+7. Related        |loupe-related|
+8. Website        |loupe-website|
+9. License        |loupe-license|
+10. Development   |loupe-development|
+11. Authors       |loupe-authors|
+12. History       |loupe-history|
 
 INTRO                                                              *loupe-intro*
 
@@ -202,6 +203,12 @@ when jumping (via |n|, |N| etc). To disable, set to 0:
 >
     let g:LoupeCenterResults=0
 <
+FUNCTIONS                                                      *loupe-functions*
+
+loupe#hlmatch()                                                *loupe#hlmatch()*
+
+Apply highlighting to the current search match.
+
 OVERRIDES                                                      *loupe-overrides*
 
 Loupe sets a number of search-related Vim settings to reasonable defaults in

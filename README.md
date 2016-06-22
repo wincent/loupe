@@ -177,6 +177,13 @@ Controls whether the match's line is vertically centered within the window when 
 let g:LoupeCenterResults=0
 ```
 
+## Functions<a name="loupe-functions" href="#user-content-loupe-functions"></a>
+
+<p align="right"><a name="loupehlmatch" href="#user-content-loupehlmatch"><code>loupe#hlmatch()</code></a></p>
+### `loupe#hlmatch()`<a name="loupe-loupehlmatch" href="#user-content-loupe-loupehlmatch"></a>
+
+Apply highlighting to the current search match.
+
 ## Overrides<a name="loupe-overrides" href="#user-content-loupe-overrides"></a>
 
 Loupe sets a number of search-related Vim settings to reasonable defaults in order to provide a good "out of the box" experience. The following overrides will be set unless suppressed or overridden (see <strong>[`loupe-suppress-overrides`](#user-content-loupe-suppress-overrides)</strong>):
