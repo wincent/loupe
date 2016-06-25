@@ -325,8 +325,8 @@ endif
 " - The mapping has been suppressed by setting |g:LoupeClearHighlightMap| to 1
 "   in your |.vimrc|.
 nnoremap <silent> <Plug>(LoupeClearHighlight)
-      \ :nohlsearch<CR>
-      \ :call loupe#private#clear_highlight()<CR>
+      \ :nohlsearch<bar>
+      \ call loupe#private#clear_highlight()<CR>
 
 " Make `:nohlsearch` behave like <Plug>(LoupeClearHighlight).
 cabbrev <silent> <expr> noh (getcmdtype() == ':' && getcmdpos() == 4 ? 'noh <bar> call loupe#private#clear_highlight()<CR>' : 'noh')
