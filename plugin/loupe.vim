@@ -329,14 +329,14 @@ nnoremap <silent> <Plug>(LoupeClearHighlight)
       \ call loupe#private#clear_highlight()<CR>
 
 " Make `:nohlsearch` behave like <Plug>(LoupeClearHighlight).
-cnoreabbrev <silent> <expr> noh (getcmdtype() == ':' && getcmdpos() == 4 ? 'noh <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR>' : ''): 'noh')
-cnoreabbrev <silent> <expr> nohl (getcmdtype() == ':' && getcmdpos() == 5 ? 'nohl <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR>' : '') : 'nohl')
-cnoreabbrev <silent> <expr> nohls (getcmdtype() == ':' && getcmdpos() == 6 ? 'nohls <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR>' : '') : 'nohls')
-cnoreabbrev <silent> <expr> nohlse (getcmdtype() == ':' && getcmdpos() == 7 ? 'nohlse <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR>' : '') : 'nohlse')
-cnoreabbrev <silent> <expr> nohlsea (getcmdtype() == ':' && getcmdpos() == 8 ? 'nohlsea <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR>' : '') : 'nohlsea')
-cnoreabbrev <silent> <expr> nohlsear (getcmdtype() == ':' && getcmdpos() == 9 ? 'nohlsear <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR>' : '') : 'nohlsear')
-cnoreabbrev <silent> <expr> nohlsearc (getcmdtype() == ':' && getcmdpos() == 10 ? 'nohlsearc <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR>' : '') : 'nohlsearc')
-cnoreabbrev <silent> <expr> nohlsearch (getcmdtype() == ':' && getcmdpos() == 11 ? 'nohlsearch <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR>' : '') : 'nohlsearch')
+cnoreabbrev <silent> <expr> noh (getcmdtype() == ':' && getcmdpos() == 4 ? 'noh <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : ''): 'noh')
+cnoreabbrev <silent> <expr> nohl (getcmdtype() == ':' && getcmdpos() == 5 ? 'nohl <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohl')
+cnoreabbrev <silent> <expr> nohls (getcmdtype() == ':' && getcmdpos() == 6 ? 'nohls <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohls')
+cnoreabbrev <silent> <expr> nohlse (getcmdtype() == ':' && getcmdpos() == 7 ? 'nohlse <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohlse')
+cnoreabbrev <silent> <expr> nohlsea (getcmdtype() == ':' && getcmdpos() == 8 ? 'nohlsea <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohlsea')
+cnoreabbrev <silent> <expr> nohlsear (getcmdtype() == ':' && getcmdpos() == 9 ? 'nohlsear <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohlsear')
+cnoreabbrev <silent> <expr> nohlsearc (getcmdtype() == ':' && getcmdpos() == 10 ? 'nohlsearc <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohlsearc')
+cnoreabbrev <silent> <expr> nohlsearch (getcmdtype() == ':' && getcmdpos() == 11 ? 'nohlsearch <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohlsearch')
 
 ""
 " @option g:LoupeVeryMagic boolean 1
