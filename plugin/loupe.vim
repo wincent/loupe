@@ -243,6 +243,16 @@
 "
 " # History
 "
+" ## 1.2 (27 June 2016)
+"
+" - Suppress unwanted cursor movement after |<Plug>(LoupeClearHighlight)| and
+"   when using |:nohighlight|.
+" - Expose |loupe#hlmatch()| (previously was a private function) for users who
+"   wish to do low-level intergration with other plug-ins.
+" - Provide |<Plug>| mappings for |star|, |#|, |n|, |N|, |gstar|, |g#|
+"   (see |<Plug>(LoupeStar)|, |<Plug>(LoupeOctothorpe)|, |<Plug>(Loupen)|,
+"   |<Plug>(LoupeN)|, |<Plug>(LoupeGStar)|, |<Plug>(LoupeGOctothorpe)|).
+"
 " ## 1.1 (15 June 2016)
 "
 " - Make compatible with older versions of Vim that do not have |v:hlsearch|.

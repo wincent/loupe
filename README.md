@@ -319,6 +319,12 @@ Which he discussed in his "More Instantly Better Vim" presentation at OSCON 2013
 
 ## History<a name="loupe-history" href="#user-content-loupe-history"></a>
 
+### 1.2 (27 June 2016)<a name="loupe-12-27-june-2016" href="#user-content-loupe-12-27-june-2016"></a>
+
+- Suppress unwanted cursor movement after <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong> and when using <strong>`:nohighlight`</strong>.
+- Expose <strong>`loupe#hlmatch()`</strong> (previously was a private function) for users who wish to do low-level intergration with other plug-ins.
+- Provide <strong>`<Plug>`</strong> mappings for <strong>`star`</strong>, <strong>`#`</strong>, <strong>`n`</strong>, <strong>`N`</strong>, <strong>`gstar`</strong>, <strong>`g#`</strong> (see <strong>[`<Plug>(LoupeStar)`](#user-content-plugloupestar)</strong>, <strong>[`<Plug>(LoupeOctothorpe)`](#user-content-plugloupeoctothorpe)</strong>, <strong>[`<Plug>(Loupen)`](#user-content-plugloupen)</strong>, <strong>[`<Plug>(LoupeN)`](#user-content-plugloupen)</strong>, <strong>[`<Plug>(LoupeGStar)`](#user-content-plugloupegstar)</strong>, <strong>[`<Plug>(LoupeGOctothorpe)`](#user-content-plugloupegoctothorpe)</strong>).
+
 ### 1.1 (15 June 2016)<a name="loupe-11-15-june-2016" href="#user-content-loupe-11-15-june-2016"></a>
 
 - Make compatible with older versions of Vim that do not have <strong>`v:hlsearch`</strong>.
