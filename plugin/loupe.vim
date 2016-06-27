@@ -328,15 +328,24 @@ nnoremap <silent> <Plug>(LoupeClearHighlight)
       \ :nohlsearch<bar>
       \ call loupe#private#clear_highlight()<CR>
 
+function! s:Nohlsearch(command)
+  if getcmdtype() == ':' && getcmdpos() == len(a:command) + 1
+    call loupe#private#clear_highlight()
+    return a:command
+  else
+    return a:command
+  endif
+endfunction
+
 " Make `:nohlsearch` behave like <Plug>(LoupeClearHighlight).
-cnoreabbrev <silent> <expr> noh (getcmdtype() == ':' && getcmdpos() == 4 ? 'noh <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : ''): 'noh')
-cnoreabbrev <silent> <expr> nohl (getcmdtype() == ':' && getcmdpos() == 5 ? 'nohl <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohl')
-cnoreabbrev <silent> <expr> nohls (getcmdtype() == ':' && getcmdpos() == 6 ? 'nohls <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohls')
-cnoreabbrev <silent> <expr> nohlse (getcmdtype() == ':' && getcmdpos() == 7 ? 'nohlse <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohlse')
-cnoreabbrev <silent> <expr> nohlsea (getcmdtype() == ':' && getcmdpos() == 8 ? 'nohlsea <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohlsea')
-cnoreabbrev <silent> <expr> nohlsear (getcmdtype() == ':' && getcmdpos() == 9 ? 'nohlsear <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohlsear')
-cnoreabbrev <silent> <expr> nohlsearc (getcmdtype() == ':' && getcmdpos() == 10 ? 'nohlsearc <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohlsearc')
-cnoreabbrev <silent> <expr> nohlsearch (getcmdtype() == ':' && getcmdpos() == 11 ? 'nohlsearch <bar> call loupe#private#clear_highlight()' . (v:char == ' ' ? '<CR><Left>' : '') : 'nohlsearch')
+cnoreabbrev <expr> noh <SID>Nohlsearch('noh')
+cnoreabbrev <expr> nohl <SID>Nohlsearch('nohl')
+cnoreabbrev <expr> nohls <SID>Nohlsearch('nohls')
+cnoreabbrev <expr> nohlse <SID>Nohlsearch('nohlse')
+cnoreabbrev <expr> nohlsea <SID>Nohlsearch('nohlsea')
+cnoreabbrev <expr> nohlsear <SID>Nohlsearch('nohlsear')
+cnoreabbrev <expr> nohlsearc <SID>Nohlsearch('nohlsearc')
+cnoreabbrev <expr> nohlsearch <SID>Nohlsearch('nohlsearch')
 
 ""
 " @option g:LoupeVeryMagic boolean 1
