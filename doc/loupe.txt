@@ -370,6 +370,10 @@ Which he discussed in his "More Instantly Better Vim" presentation at OSCON
 
 HISTORY                                                          *loupe-history*
 
+1.2.1 (not yet released) ~
+
+- Match default Vim behavior of opening folds when jumping to a match.
+
 1.2 (27 June 2016) ~
 
 - Suppress unwanted cursor movement after |<Plug>(LoupeClearHighlight)| and

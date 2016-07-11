@@ -319,6 +319,10 @@ Which he discussed in his "More Instantly Better Vim" presentation at OSCON 2013
 
 ## History<a name="loupe-history" href="#user-content-loupe-history"></a>
 
+### 1.2.1 (not yet released)<a name="loupe-121-not-yet-released" href="#user-content-loupe-121-not-yet-released"></a>
+
+- Match default Vim behavior of opening folds when jumping to a match.
+
 ### 1.2 (27 June 2016)<a name="loupe-12-27-june-2016" href="#user-content-loupe-12-27-june-2016"></a>
 
 - Suppress unwanted cursor movement after <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong> and when using <strong>`:nohighlight`</strong>.

@@ -243,6 +243,10 @@
 "
 " # History
 "
+" ## 1.2.1 (not yet released)
+"
+" - Match default Vim behavior of opening folds when jumping to a match.
+"
 " ## 1.2 (27 June 2016)
 "
 " - Suppress unwanted cursor movement after |<Plug>(LoupeClearHighlight)| and
@@ -428,6 +432,7 @@ function! s:map(keys, name)
   execute 'nnoremap <silent> <Plug>(Loupe' . a:name . ')' .
         \ ' ' .
         \ a:keys .
+        \ 'zv' .
         \ s:center_string .
         \ ':call loupe#hlmatch()<CR>'
 endfunction
