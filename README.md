@@ -319,7 +319,7 @@ Which he discussed in his "More Instantly Better Vim" presentation at OSCON 2013
 
 ## History<a name="loupe-history" href="#user-content-loupe-history"></a>
 
-### 1.2.1 (not yet released)<a name="loupe-121-not-yet-released" href="#user-content-loupe-121-not-yet-released"></a>
+### 1.2.1 (13 July 2016)<a name="loupe-121-13-july-2016" href="#user-content-loupe-121-13-july-2016"></a>
 
 - Match default Vim behavior of opening folds when jumping to a match.
 

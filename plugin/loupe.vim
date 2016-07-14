@@ -243,7 +243,7 @@
 "
 " # History
 "
-" ## 1.2.1 (not yet released)
+" ## 1.2.1 (13 July 2016)
 "
 " - Match default Vim behavior of opening folds when jumping to a match.
 "
