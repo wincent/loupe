@@ -434,7 +434,8 @@ function! s:map(keys, name)
         \ a:keys .
         \ 'zv' .
         \ s:center_string .
-        \ ':call loupe#hlmatch()<CR>'
+        \ ':call loupe#hlmatch()<CR>' .
+        \ ':call loupe#hlsearch()<CR>'
 endfunction
 
 ""

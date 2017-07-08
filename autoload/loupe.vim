@@ -41,3 +41,29 @@ function! loupe#hlmatch() abort
     let w:loupe_hlmatch=matchadd(l:highlight, l:pattern)
   endif
 endfunction
+
+""
+" @function loupe#hlsearch
+"
+" Make hlsearch transient.
+"
+function! loupe#hlsearch() abort
+  ""
+  " @option g:LoupeHlSearchTimeout number 0
+  " How long after a search command before hlsearch is deactivated.
+  " In milliseconds.
+  " To enable this feature, set to a number > 0:
+  "
+  " ```
+  " let g:LoupeHlSearchTimeout=1000
+  " ```
+  let l:time=get(g:, 'LoupeHlSearchTimeout', 0)
+
+  if l:time > 0 && has('timers')
+    " activate hlsearch
+    set hlsearch
+
+    " schedule hlsearch deactivation
+    let w:hlsearch_timer=timer_start(l:time, 'loupe#private#clear_hlsearch')
+  endif
+endfunction

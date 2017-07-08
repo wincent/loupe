@@ -177,6 +177,18 @@ Controls whether the match's line is vertically centered within the window when 
 let g:LoupeCenterResults=0
 ```
 
+<p align="right"><a name="gloupehlsearchtimeout" href="#user-content-gloupehlsearchtimeout"><code>g:LoupeHlSearchTimeout</code></a></p>
+### `g:LoupeHlSearchTimeout` (number, default: 0)<a name="loupe-gloupehlsearchtimeout-number-default-0" href="#user-content-loupe-gloupehlsearchtimeout-number-default-0"></a>
+
+  " In milliseconds.
+  " To enable this feature, set to a number > 0:
+
+Controls how long (in milliseconds) hlsearch remains active after a search (<strong>`/`</strong>, <strong>`?`</strong>) is executed or a jump (<strong>`n`</strong>, <strong>`*`</strong> etc.) is performed. By default, there is no timeout. Setting this option to a positive number will enable the timeout if timers are supported (i.e. <strong>`has('timers')`</strong>).
+
+```
+let g:LoupeHlSearchTimeout=1000
+```
+
 ## Functions<a name="loupe-functions" href="#user-content-loupe-functions"></a>
 
 <p align="right"><a name="loupehlmatch" href="#user-content-loupehlmatch"><code>loupe#hlmatch()</code></a></p>

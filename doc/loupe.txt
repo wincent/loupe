@@ -203,6 +203,17 @@ when jumping (via |n|, |N| etc). To disable, set to 0:
 >
     let g:LoupeCenterResults=0
 <
+
+                                                        *g:LoupeHlSearchTimeout*
+|g:LoupeHlSearchTimeout|                                     number (default: 0)
+
+Controls how long (in milliseconds) hlsearch remains active after a search
+(|/|, |?|) is executed or a jump (|n|, |*| etc.) is performed. By default,
+there is no timeout. Setting this option to a positive number will enable the
+timeout if timers are supported.
+>
+    let g:LoupeHlSearchTimeout=1000
+<
 FUNCTIONS                                                      *loupe-functions*
 
 loupe#hlmatch()                                                *loupe#hlmatch()*
