@@ -93,7 +93,7 @@ endfunction
 " recent search command.
 function! loupe#private#clear_hlsearch(timer) abort
   " only process the most recent timer
-  if a:timer == w:hlsearch_timer
+  if a:timer == g:hlsearch_timer
     set nohlsearch
   endif
 endfunction

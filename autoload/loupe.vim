@@ -64,6 +64,6 @@ function! loupe#hlsearch() abort
     set hlsearch
 
     " schedule hlsearch deactivation
-    let w:hlsearch_timer=timer_start(l:time, 'loupe#private#clear_hlsearch')
+    let g:hlsearch_timer=timer_start(l:time, 'loupe#private#clear_hlsearch')
   endif
 endfunction
