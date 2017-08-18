@@ -38,6 +38,10 @@ function! loupe#hlmatch() abort
   let l:pattern='\c\%#' . @/
 
   if exists('*matchadd')
-    let w:loupe_hlmatch=matchadd(l:highlight, l:pattern)
+    try
+      let w:loupe_hlmatch=matchadd(l:highlight, l:pattern)
+    catch /.*/
+      " Invalid search pattern.
+    endtry
   endif
 endfunction
