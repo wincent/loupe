@@ -70,7 +70,7 @@ function! loupe#private#prepare_highlight(result) abort
   if has('autocmd')
     augroup LoupeHightlightMatch
       autocmd!
-      autocmd CursorMoved * :call loupe#hlmatch()
+      autocmd CursorMoved * :call loupe#hlmatch() | :call loupe#hlsearch()
     augroup END
   endif
   return a:result
@@ -86,6 +86,15 @@ function! loupe#private#clear_highlight() abort
     finally
       unlet w:loupe_hlmatch
     endtry
+  endif
+endfunction
+
+" Deactivate hlsearch once the configured timeout has passed since the most
+" recent search command.
+function! loupe#private#clear_hlsearch(timer) abort
+  " only process the most recent timer
+  if a:timer == g:hlsearch_timer
+    set nohlsearch
   endif
 endfunction
 
