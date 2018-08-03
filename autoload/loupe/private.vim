@@ -81,7 +81,7 @@ function! loupe#private#clear_highlight() abort
   if exists('w:loupe_hlmatch')
     try
       call matchdelete(w:loupe_hlmatch)
-    catch /\v<(E802|E803)>/
+    catch /\v(E802|E803)/
       " https://github.com/wincent/loupe/issues/1
     finally
       unlet w:loupe_hlmatch
