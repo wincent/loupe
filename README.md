@@ -5,7 +5,7 @@
 
 ## Intro<a name="loupe-intro" href="#user-content-loupe-intro"></a>
 
-> "loupe (noun)<br />a small magnifying glass used by jewelers and watchmakers."
+> &quot;loupe (noun)<br />a small magnifying glass used by jewelers and watchmakers.&quot;
 
 <p align="right"><a name="loupe-features" href="#user-content-loupe-features"><code>loupe-features</code></a></p>
 Loupe enhances Vim's <strong>`search-commands`</strong> in four ways:
@@ -13,7 +13,7 @@ Loupe enhances Vim's <strong>`search-commands`</strong> in four ways:
 
 ### 1. Makes the currently selected match easier to see<a name="loupe-1-makes-the-currently-selected-match-easier-to-see" href="#user-content-loupe-1-makes-the-currently-selected-match-easier-to-see"></a>
 
-When searching using <strong>`/`</strong>, <strong>`?`</strong>, <strong>`star`</strong>, <strong>`#`</strong>, <strong>`n`</strong>, <strong>`N`</strong> or similar, it can be hard to see the "current" match from among all the matches that 'hlsearch' highlights. Loupe makes the currently selected match easier to see by:
+When searching using <strong>`/`</strong>, <strong>`?`</strong>, <strong>`star`</strong>, <strong>`#`</strong>, <strong>`n`</strong>, <strong>`N`</strong> or similar, it can be hard to see the &quot;current&quot; match from among all the matches that 'hlsearch' highlights. Loupe makes the currently selected match easier to see by:
 
 - Applying a different <strong>`:highlight`</strong> group (by default, <strong>`hl-IncSearch`</strong>) to the match under the cursor.
 - Keeping the matching line centered within the window when jumping between matches with <strong>`n`</strong> and <strong>`N`</strong>.
@@ -21,26 +21,26 @@ When searching using <strong>`/`</strong>, <strong>`?`</strong>, <strong>`star`<
 
 ### 2. Applies sane pattern syntax by default<a name="loupe-2-applies-sane-pattern-syntax-by-default" href="#user-content-loupe-2-applies-sane-pattern-syntax-by-default"></a>
 
-Loupe makes "very magic" (<strong>`/\v`</strong>) syntax apply by default when searching. This is true even if you initiate a search via a novel means, such as from a visual selection or with a complicated <strong>`:range`</strong> prefix.
+Loupe makes &quot;very magic&quot; (<strong>`/\v`</strong>) syntax apply by default when searching. This is true even if you initiate a search via a novel means, such as from a visual selection or with a complicated <strong>`:range`</strong> prefix.
 
 This means that you can use a pattern syntax closer to the familiar regular expression syntax from languages such as Perl, Ruby, JavaScript (indeed, most other modern languages that support regular expressions).
 
 
 ### 3. Provides a shortcut to remove search highlighting<a name="loupe-3-provides-a-shortcut-to-remove-search-highlighting" href="#user-content-loupe-3-provides-a-shortcut-to-remove-search-highlighting"></a>
 
-Loupe maps <leader>n to quickly remove all 'hlsearch' highlighting (although you can provide an alternative mapping of your choosing or suppress the feature entirely).
+Loupe maps &lt;leader&gt;n to quickly remove all 'hlsearch' highlighting (although you can provide an alternative mapping of your choosing or suppress the feature entirely).
 
 
 ### 4. Sensible defaults for search-related features<a name="loupe-4-sensible-defaults-for-search-related-features" href="#user-content-loupe-4-sensible-defaults-for-search-related-features"></a>
 
-Loupe provides reasonable defaults for most search-related Vim settings to provide a good "out of the box" experience. For more details, or to see how to override Loupe's settings, see <strong>[`loupe-overrides`](#user-content-loupe-overrides)</strong>.
+Loupe provides reasonable defaults for most search-related Vim settings to provide a good &quot;out of the box&quot; experience. For more details, or to see how to override Loupe's settings, see <strong>[`loupe-overrides`](#user-content-loupe-overrides)</strong>.
 
 
 ## Installation<a name="loupe-installation" href="#user-content-loupe-installation"></a>
 
 To install Loupe, use your plug-in management system of choice.
 
-If you don't have a "plug-in management system of choice", I recommend Pathogen (https://github.com/tpope/vim-pathogen) due to its simplicity and robustness. Assuming that you have Pathogen installed and configured, and that you want to install Loupe into `~/.vim/bundle`, you can do so with:
+If you don't have a &quot;plug-in management system of choice&quot;, I recommend Pathogen (https://github.com/tpope/vim-pathogen) due to its simplicity and robustness. Assuming that you have Pathogen installed and configured, and that you want to install Loupe into `~/.vim/bundle`, you can do so with:
 
 ```
 git clone https://github.com/wincent/loupe.git ~/.vim/bundle/loupe
@@ -65,16 +65,16 @@ To generate help tags under Pathogen, you can do so from inside Vim with:
 
 ### `<Plug>(LoupeClearHighlight)`<a name="loupe-plugloupeclearhighlight" href="#user-content-loupe-plugloupeclearhighlight"></a>
 
-Loupe maps <leader>n to <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong>, which clears all visible highlights (like <strong>`:nohighlight`</strong> does). To use an alternative mapping instead, create a different one in your <strong>`.vimrc`</strong> instead using <strong>`:nmap`</strong>:
+Loupe maps &lt;leader&gt;n to <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong>, which clears all visible highlights (like <strong>`:nohighlight`</strong> does). To use an alternative mapping instead, create a different one in your <strong>`.vimrc`</strong> instead using <strong>`:nmap`</strong>:
 
 ```
 " Instead of <leader>n, use <leader>x.
 nmap <leader>x <Plug>(LoupeClearHighlight)
 ```
 
-Note that Loupe will not try to set up its <leader>n mapping if any of the following are true:
+Note that Loupe will not try to set up its &lt;leader&gt;n mapping if any of the following are true:
 
-- A mapping for <leader>n already exists.
+- A mapping for &lt;leader&gt;n already exists.
 - An alternative mapping for <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong> has already been set up from a <strong>`.vimrc`</strong>.
 - The mapping has been suppressed by setting <strong>`g:LoupeClearHighlightMap`</strong> to 1 in your <strong>`.vimrc`</strong>.
 
@@ -151,13 +151,13 @@ nmap <Nop> <Plug>(Loupen)
 
 ### `g:LoupeHighlightGroup` (string, default: IncSearch)<a name="loupe-gloupehighlightgroup-string-default-incsearch" href="#user-content-loupe-gloupehighlightgroup-string-default-incsearch"></a>
 
-Specifies the <strong>`:highlight`</strong> group used to emphasize the match currently under the cursor for the current search pattern. Defaults to "IncSearch" (ie. <strong>`hl-IncSearch`</strong>). For example:
+Specifies the <strong>`:highlight`</strong> group used to emphasize the match currently under the cursor for the current search pattern. Defaults to &quot;IncSearch&quot; (ie. <strong>`hl-IncSearch`</strong>). For example:
 
 ```
 let g:LoupeHighlightGroup='Error'
 ```
 
-To prevent any special highlighting from being applied, set this option to "" (ie. the empty string).
+To prevent any special highlighting from being applied, set this option to &quot;&quot; (ie. the empty string).
 
 <p align="right"><a name="gloupeloaded" href="#user-content-gloupeloaded"><code>g:LoupeLoaded</code></a></p>
 
@@ -183,7 +183,7 @@ let g:LoupeClearHighlightMap=0
 
 ### `g:LoupeVeryMagic` (boolean, default: 1)<a name="loupe-gloupeverymagic-boolean-default-1" href="#user-content-loupe-gloupeverymagic-boolean-default-1"></a>
 
-Controls whether "very magic" pattern syntax (<strong>`/\v`</strong>) is applied by default. To disable, set to 0:
+Controls whether &quot;very magic&quot; pattern syntax (<strong>`/\v`</strong>) is applied by default. To disable, set to 0:
 
 ```
 let g:LoupeVeryMagic=0
@@ -211,7 +211,7 @@ Apply highlighting to the current search match.
 
 ## Overrides<a name="loupe-overrides" href="#user-content-loupe-overrides"></a>
 
-Loupe sets a number of search-related Vim settings to reasonable defaults in order to provide a good "out of the box" experience. The following overrides will be set unless suppressed or overridden (see <strong>[`loupe-suppress-overrides`](#user-content-loupe-suppress-overrides)</strong>):
+Loupe sets a number of search-related Vim settings to reasonable defaults in order to provide a good &quot;out of the box&quot; experience. The following overrides will be set unless suppressed or overridden (see <strong>[`loupe-suppress-overrides`](#user-content-loupe-suppress-overrides)</strong>):
 
 <p align="right"><a name="loupe-history-override" href="#user-content-loupe-history-override"><code>loupe-history-override</code></a></p>
 'history'
@@ -236,7 +236,7 @@ Turned on (to ignore case in search patterns).
 <p align="right"><a name="loupe-shortmess-override" href="#user-content-loupe-shortmess-override"><code>loupe-shortmess-override</code></a></p>
 'shortmess'
 
-Adds "s", which suppresses the display of "search hit BOTTOM, continuing at TOP" and "search hit TOP, continuing at BOTTOM" messages.
+Adds &quot;s&quot;, which suppresses the display of &quot;search hit BOTTOM, continuing at TOP&quot; and &quot;search hit TOP, continuing at BOTTOM&quot; messages.
 
 <p align="right"><a name="loupe-smartcase-override" href="#user-content-loupe-smartcase-override"><code>loupe-smartcase-override</code></a></p>
 'smartcase'
@@ -293,7 +293,7 @@ Redistribution and use in source and binary forms, with or without modification,
 
 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
 ## Development<a name="loupe-development" href="#user-content-loupe-development"></a>
@@ -340,18 +340,23 @@ git archive -o loupe-$VERSION.zip HEAD -- .
 
 ## Authors<a name="loupe-authors" href="#user-content-loupe-authors"></a>
 
-Loupe is written and maintained by Greg Hurrell <greg@hurrell.net>.
+Loupe is written and maintained by Greg Hurrell &lt;greg@hurrell.net&gt;.
 
 The original idea for the <strong>`g:LoupeHighlightGroup`</strong> feature was taken from Damian Conway's Vim set-up:
 
 - https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/plugin/hlnext.vim
 
-Which he discussed in his "More Instantly Better Vim" presentation at OSCON 2013:
+Which he discussed in his &quot;More Instantly Better Vim&quot; presentation at OSCON 2013:
 
 - https://www.youtube.com/watch?v=aHm36-na4-4
 
 
 ## History<a name="loupe-history" href="#user-content-loupe-history"></a>
+
+
+### 1.2.2 (7 August 2018)<a name="loupe-122-7-august-2018" href="#user-content-loupe-122-7-august-2018"></a>
+
+- Fix error-handling to work regardless of <strong>`'iskeyword'`</strong> setting (https://github.com/wincent/loupe/pull/14).
 
 
 ### 1.2.1 (13 July 2016)<a name="loupe-121-13-july-2016" href="#user-content-loupe-121-13-july-2016"></a>

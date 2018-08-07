@@ -243,6 +243,11 @@
 "
 " # History
 "
+" ## 1.2.2 (7 August 2018)
+"
+" - Fix error-handling to work regardless of |'iskeyword'| setting
+"   (https://github.com/wincent/loupe/pull/14).
+"
 " ## 1.2.1 (13 July 2016)
 "
 " - Match default Vim behavior of opening folds when jumping to a match.
