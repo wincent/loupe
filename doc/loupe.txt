@@ -205,7 +205,8 @@ when jumping (via |n|, |N| etc). To disable, set to 0:
 <
 FUNCTIONS                                                      *loupe-functions*
 
-loupe#hlmatch()                                                *loupe#hlmatch()*
+                                                               *loupe#hlmatch()*
+loupe#hlmatch() ~
 
 Apply highlighting to the current search match.
 
