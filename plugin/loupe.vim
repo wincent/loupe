@@ -436,7 +436,10 @@ function! s:map(keys, name)
   endif
   execute 'nnoremap <silent> <Plug>(Loupe' . a:name . ')' .
         \ ' ' .
+        \ ':unsilent :norm!'.
+        \ ' ' .
         \ a:keys .
+        \ '<CR>'.
         \ 'zv' .
         \ s:center_string .
         \ ':call loupe#hlmatch()<CR>'
