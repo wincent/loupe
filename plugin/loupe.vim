@@ -2,6 +2,12 @@
 " Licensed under the terms of the BSD 2-clause license.
 
 ""
+" @header
+"
+" @image https://raw.githubusercontent.com/wincent/loupe/media/loupe-small.jpg center
+"
+
+""
 "
 " @plugin loupe Loupe plug-in for Vim
 "
@@ -116,8 +122,8 @@
 "                                                      *loupe-smartcase-override*
 "   'smartcase'
 "
-"   Turned on (overrides 'ignorecase', making the search pattern case-sensitive
-"   whenever it containers uppercase characters).
+"   Turned on (overrides |'ignorecase'|, making the search pattern
+"   case-sensitive whenever it containers uppercase characters).
 "
 " @dedent
 "
@@ -242,6 +248,11 @@
 " - https://www.youtube.com/watch?v=aHm36-na4-4
 "
 " # History
+"
+" ## master (not yet released)
+"
+" - Add |g:LoupeCaseSettingsAlways| to make Vim respect |'ignorecase'| and
+"   |'smartcase'| settings while using |star|, |gstar|, |#| and |g#|.
 "
 " ## 1.2.2 (7 August 2018)
 "
@@ -428,17 +439,46 @@ function! s:map(keys, name)
   " ```
   " let g:LoupeCenterResults=0
   " ```
-  let s:center=get(g:, 'LoupeCenterResults', 1)
-  let s:center_string=s:center ? 'zz' : ''
+  let l:center=get(g:, 'LoupeCenterResults', 1)
+  let l:center_string=l:center ? 'zz' : ''
+
+  ""
+  " @option g:LoupeCaseSettingsAlways boolean 1
+  "
+  " Normally Vim will respect your |'smartcase'| and |'ignorecase'| settings
+  " when searching with |/|, or |?|, but it ignores them when using |star|, |#|,
+  " |gstar| or |g#|.
+  "
+  " This setting forces Vim to respect your |'smartcase'| and |'ignorecase'|
+  " settings in all cases. To disable, set to 0:
+  "
+  " ```
+  " let g:LoupeCaseSettingsAlways=0
+  " ```
+  let l:case=get(g:, 'LoupeCaseSettingsAlways', 1)
+
+  if a:keys ==# '#'
+    let l:action=l:case ? ":let @/='\\V\\<'.loupe#private#escape(expand('<cword>')).'\\>'<CR>:let v:searchforward=0<CR>n" : '#'
+  elseif a:keys ==# '*'
+    let l:action=l:case ? ":let @/='\\V\\<'.loupe#private#escape(expand('<cword>')).'\\>'<CR>:let v:searchforward=1<CR>n" : '*'
+  elseif a:keys ==# 'N'
+    let l:action='N'
+  elseif a:keys ==# 'g#'
+    let l:action=l:case ? ":let @/='\\V'.loupe#private#escape(expand('<cword>'))<CR>:let v:searchforward=0<CR>n" : 'g#'
+  elseif a:keys ==# 'g*'
+    let l:action=l:case ? ":let @/='\\V'.loupe#private#escape(expand('<cword>'))<CR>:let v:searchforward=1<CR>n" : 'g*'
+  elseif a:keys ==# 'n'
+    let l:action='n'
+  endif
 
   if !hasmapto('<Plug>(Loupe' . a:name . ')')
     execute 'nmap <silent> ' . a:keys . ' <Plug>(Loupe' . a:name . ')'
   endif
   execute 'nnoremap <silent> <Plug>(Loupe' . a:name . ')' .
         \ ' ' .
-        \ a:keys .
+        \ l:action .
         \ 'zv' .
-        \ s:center_string .
+        \ l:center_string .
         \ ':call loupe#hlmatch()<CR>'
 endfunction
 

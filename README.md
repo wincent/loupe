@@ -1,4 +1,6 @@
-![Loupe](https://raw.githubusercontent.com/wincent/loupe/media/loupe-small.jpg)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/wincent/loupe/media/loupe-small.jpg" />
+</p>
 
 # loupe<a name="loupe-loupe" href="#user-content-loupe-loupe"></a>
 
@@ -76,7 +78,7 @@ Note that Loupe will not try to set up its &lt;leader&gt;n mapping if any of the
 
 - A mapping for &lt;leader&gt;n already exists.
 - An alternative mapping for <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong> has already been set up from a <strong>`.vimrc`</strong>.
-- The mapping has been suppressed by setting <strong>`g:LoupeClearHighlightMap`</strong> to 1 in your <strong>`.vimrc`</strong>.
+- The mapping has been suppressed by setting <strong>[`g:LoupeClearHighlightMap`](#user-content-gloupeclearhighlightmap)</strong> to 1 in your <strong>`.vimrc`</strong>.
 
 
 ### `<Plug>(LoupeOctothorpe)`<a name="loupe-plugloupeoctothorpe" href="#user-content-loupe-plugloupeoctothorpe"></a>
@@ -163,7 +165,7 @@ To prevent any special highlighting from being applied, set this option to &quot
 
 ### `g:LoupeLoaded` (any, default: none)<a name="loupe-gloupeloaded-any-default-none" href="#user-content-loupe-gloupeloaded-any-default-none"></a>
 
-To prevent Loupe from being loaded, set <strong>`g:LoupeLoaded`</strong> to any value in your <strong>`.vimrc`</strong>. For example:
+To prevent Loupe from being loaded, set <strong>[`g:LoupeLoaded`](#user-content-gloupeloaded)</strong> to any value in your <strong>`.vimrc`</strong>. For example:
 
 ```
 let g:LoupeLoaded=1
@@ -197,6 +199,18 @@ Controls whether the match's line is vertically centered within the window when 
 
 ```
 let g:LoupeCenterResults=0
+```
+
+<p align="right"><a name="gloupecasesettingsalways" href="#user-content-gloupecasesettingsalways"><code>g:LoupeCaseSettingsAlways</code></a></p>
+
+### `g:LoupeCaseSettingsAlways` (boolean, default: 1)<a name="loupe-gloupecasesettingsalways-boolean-default-1" href="#user-content-loupe-gloupecasesettingsalways-boolean-default-1"></a>
+
+Normally Vim will respect your <strong>`'smartcase'`</strong> and <strong>`'ignorecase'`</strong> settings when searching with <strong>`/`</strong>, or <strong>`?`</strong>, but it ignores them when using <strong>`star`</strong>, <strong>`#`</strong>, <strong>`gstar`</strong> or <strong>`g#`</strong>.
+
+This setting forces Vim to respect your <strong>`'smartcase'`</strong> and <strong>`'ignorecase'`</strong> settings in all cases. To disable, set to 0:
+
+```
+let g:LoupeCaseSettingsAlways=0
 ```
 
 
@@ -241,7 +255,7 @@ Adds &quot;s&quot;, which suppresses the display of &quot;search hit BOTTOM, con
 <p align="right"><a name="loupe-smartcase-override" href="#user-content-loupe-smartcase-override"><code>loupe-smartcase-override</code></a></p>
 'smartcase'
 
-Turned on (overrides 'ignorecase', making the search pattern case-sensitive whenever it containers uppercase characters).
+Turned on (overrides <strong>`'ignorecase'`</strong>, making the search pattern case-sensitive whenever it containers uppercase characters).
 
 <p align="right"><a name="loupe-suppress-overrides" href="#user-content-loupe-suppress-overrides"><code>loupe-suppress-overrides</code></a></p>
 
@@ -342,7 +356,7 @@ git archive -o loupe-$VERSION.zip HEAD -- .
 
 Loupe is written and maintained by Greg Hurrell &lt;greg@hurrell.net&gt;.
 
-The original idea for the <strong>`g:LoupeHighlightGroup`</strong> feature was taken from Damian Conway's Vim set-up:
+The original idea for the <strong>[`g:LoupeHighlightGroup`](#user-content-gloupehighlightgroup)</strong> feature was taken from Damian Conway's Vim set-up:
 
 - https://github.com/thoughtstream/Damian-Conway-s-Vim-Setup/blob/master/plugin/hlnext.vim
 
@@ -352,6 +366,11 @@ Which he discussed in his &quot;More Instantly Better Vim&quot; presentation at 
 
 
 ## History<a name="loupe-history" href="#user-content-loupe-history"></a>
+
+
+### master (not yet released)<a name="loupe-master-not-yet-released" href="#user-content-loupe-master-not-yet-released"></a>
+
+- Add <strong>[`g:LoupeCaseSettingsAlways`](#user-content-gloupecasesettingsalways)</strong> to make Vim respect <strong>`'ignorecase'`</strong> and <strong>`'smartcase'`</strong> settings while using <strong>`star`</strong>, <strong>`gstar`</strong>, <strong>`#`</strong> and <strong>`g#`</strong>.
 
 
 ### 1.2.2 (7 August 2018)<a name="loupe-122-7-august-2018" href="#user-content-loupe-122-7-august-2018"></a>
@@ -367,7 +386,7 @@ Which he discussed in his &quot;More Instantly Better Vim&quot; presentation at 
 ### 1.2 (27 June 2016)<a name="loupe-12-27-june-2016" href="#user-content-loupe-12-27-june-2016"></a>
 
 - Suppress unwanted cursor movement after <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong> and when using <strong>`:nohighlight`</strong>.
-- Expose <strong>`loupe#hlmatch()`</strong> (previously was a private function) for users who wish to do low-level intergration with other plug-ins.
+- Expose <strong>[`loupe#hlmatch()`](#user-content-loupehlmatch)</strong> (previously was a private function) for users who wish to do low-level intergration with other plug-ins.
 - Provide <strong>`<Plug>`</strong> mappings for <strong>`star`</strong>, <strong>`#`</strong>, <strong>`n`</strong>, <strong>`N`</strong>, <strong>`gstar`</strong>, <strong>`g#`</strong> (see <strong>[`<Plug>(LoupeStar)`](#user-content-plugloupestar)</strong>, <strong>[`<Plug>(LoupeOctothorpe)`](#user-content-plugloupeoctothorpe)</strong>, <strong>[`<Plug>(Loupen)`](#user-content-plugloupen)</strong>, <strong>[`<Plug>(LoupeN)`](#user-content-plugloupen)</strong>, <strong>[`<Plug>(LoupeGStar)`](#user-content-plugloupegstar)</strong>, <strong>[`<Plug>(LoupeGOctothorpe)`](#user-content-plugloupegoctothorpe)</strong>).
 
 

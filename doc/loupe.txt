@@ -203,6 +203,18 @@ when jumping (via |n|, |N| etc). To disable, set to 0:
 >
     let g:LoupeCenterResults=0
 <
+
+                                                     *g:LoupeCaseSettingsAlways*
+|g:LoupeCaseSettingsAlways|                                 boolean (default: 1)
+
+Normally Vim will respect your |'smartcase'| and |'ignorecase'| settings when
+searching with |/|, or |?|, but it ignores them when using |star|, |#|, |gstar| or |g#|.
+
+This setting forces Vim to respect your |'smartcase'| and |'ignorecase'|
+settings in all cases. To disable, set to 0:
+>
+    let g:LoupeCaseSettingsAlways=0
+<
 FUNCTIONS                                                      *loupe-functions*
 
                                                                *loupe#hlmatch()*
@@ -255,7 +267,7 @@ TOP" and "search hit TOP, continuing at BOTTOM" messages.
                                                       *loupe-smartcase-override*
 'smartcase'
 
-Turned on (overrides 'ignorecase', making the search pattern case-sensitive
+Turned on (overrides |'ignorecase'|, making the search pattern case-sensitive
 whenever it containers uppercase characters).
 
 
@@ -370,6 +382,11 @@ Which he discussed in his "More Instantly Better Vim" presentation at OSCON
 - https://www.youtube.com/watch?v=aHm36-na4-4
 
 HISTORY                                                          *loupe-history*
+
+master (not yet released) ~
+
+- Add |g:LoupeCaseSettingsAlways| to make Vim respect |'ignorecase'| and
+  |'smartcase'| settings while using |star|, |gstar|, |#| and |g#|.
 
 1.2.2 (7 August 2018) ~
 

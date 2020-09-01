@@ -1,6 +1,19 @@
 " Copyright 2015-present Greg Hurrell. All rights reserved.
 " Licensed under the terms of the BSD 2-clause license.
 
+" If you have a "special" character in your 'iskeyword' setting (eg. something
+" like `:set iskeyword=@,34,39,41,47-57,92,_,124,192-255,134`, where 134 is a
+" backslash), then Vim's own star command will fail to jump to the next keyword,
+" printing an error like:
+"
+"     E486: Pattern not found: \<foo\bar\>
+"
+" We can avoid this by escaping all backslashes and running in "very nomagic"
+" mode (ie. \V).
+function! loupe#private#escape(cword) abort
+  return substitute(a:cword, '\\', '\\\\', 'g')
+endfunction
+
 " Dynamically returns "/" or "/\v" depending on the location of the just-typed
 " "/" within the command-line. Only "/" that looks to be at the start of a
 " command gets replaced. The "slash" is itself configurable via the `slash`
