@@ -228,32 +228,32 @@ Apply highlighting to the current search match.
 Loupe sets a number of search-related Vim settings to reasonable defaults in order to provide a good &quot;out of the box&quot; experience. The following overrides will be set unless suppressed or overridden (see <strong>[`loupe-suppress-overrides`](#user-content-loupe-suppress-overrides)</strong>):
 
 <p align="right"><a name="loupe-history-override" href="#user-content-loupe-history-override"><code>loupe-history-override</code></a></p>
-'history'
+<strong>`'history'`</strong>
 
 Increased to 1000, to increase the number of previous searches remembered. Note that Loupe only applies this setting if the current value of 'history' is less than 1000.
 
 <p align="right"><a name="loupe-hlsearch-override" href="#user-content-loupe-hlsearch-override"><code>loupe-hlsearch-override</code></a></p>
-'hlsearch'
+<strong>`'hlsearch'`</strong>
 
 Turned on (when there is a previous search pattern, highlight all its matches).
 
 <p align="right"><a name="loupe-incsearch-override" href="#user-content-loupe-incsearch-override"><code>loupe-incsearch-override</code></a></p>
-'incsearch'
+<strong>`'incsearch'`</strong>
 
 Turned on (while typing a search command, show where the pattern matches, as it was typed so far).
 
 <p align="right"><a name="loupe-ignorecase-override" href="#user-content-loupe-ignorecase-override"><code>loupe-ignorecase-override</code></a></p>
-'ignorecase'
+<strong>`'ignorecase'`</strong>
 
 Turned on (to ignore case in search patterns).
 
 <p align="right"><a name="loupe-shortmess-override" href="#user-content-loupe-shortmess-override"><code>loupe-shortmess-override</code></a></p>
-'shortmess'
+<strong>`'shortmess'`</strong>
 
 Adds &quot;s&quot;, which suppresses the display of &quot;search hit BOTTOM, continuing at TOP&quot; and &quot;search hit TOP, continuing at BOTTOM&quot; messages.
 
 <p align="right"><a name="loupe-smartcase-override" href="#user-content-loupe-smartcase-override"><code>loupe-smartcase-override</code></a></p>
-'smartcase'
+<strong>`'smartcase'`</strong>
 
 Turned on (overrides <strong>`'ignorecase'`</strong>, making the search pattern case-sensitive whenever it containers uppercase characters).
 

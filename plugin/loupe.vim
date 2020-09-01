@@ -90,37 +90,37 @@
 "
 " @indent
 "                                                        *loupe-history-override*
-"   'history'
+"   |'history'|
 "
 "   Increased to 1000, to increase the number of previous searches remembered.
 "   Note that Loupe only applies this setting if the current value of 'history'
 "   is less than 1000.
 "
 "                                                       *loupe-hlsearch-override*
-"   'hlsearch'
+"   |'hlsearch'|
 "
 "   Turned on (when there is a previous search pattern, highlight all its
 "   matches).
 "
 "                                                      *loupe-incsearch-override*
-"   'incsearch'
+"   |'incsearch'|
 "
 "   Turned on (while typing a search command, show where the pattern matches, as
 "   it was typed so far).
 "
 "                                                     *loupe-ignorecase-override*
-"   'ignorecase'
+"   |'ignorecase'|
 "
 "   Turned on (to ignore case in search patterns).
 "
 "                                                      *loupe-shortmess-override*
-"   'shortmess'
+"   |'shortmess'|
 "
 "   Adds "s", which suppresses the display of "search hit BOTTOM, continuing at
 "   TOP" and "search hit TOP, continuing at BOTTOM" messages.
 "
 "                                                      *loupe-smartcase-override*
-"   'smartcase'
+"   |'smartcase'|
 "
 "   Turned on (overrides |'ignorecase'|, making the search pattern
 "   case-sensitive whenever it containers uppercase characters).
