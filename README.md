@@ -1,17 +1,15 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/wincent/loupe/media/loupe-small.jpg" />
 </p>
-
 # loupe<a name="loupe-loupe" href="#user-content-loupe-loupe"></a>
-
 
 ## Intro<a name="loupe-intro" href="#user-content-loupe-intro"></a>
 
 > &quot;loupe (noun)<br />a small magnifying glass used by jewelers and watchmakers.&quot;
 
 <p align="right"><a name="loupe-features" href="#user-content-loupe-features"><code>loupe-features</code></a></p>
-Loupe enhances Vim's <strong>`search-commands`</strong> in four ways:
 
+Loupe enhances Vim's <strong>`search-commands`</strong> in four ways:
 
 ### 1. Makes the currently selected match easier to see<a name="loupe-1-makes-the-currently-selected-match-easier-to-see" href="#user-content-loupe-1-makes-the-currently-selected-match-easier-to-see"></a>
 
@@ -20,23 +18,19 @@ When searching using <strong>`/`</strong>, <strong>`?`</strong>, <strong>`star`<
 - Applying a different <strong>`:highlight`</strong> group (by default, <strong>`hl-IncSearch`</strong>) to the match under the cursor.
 - Keeping the matching line centered within the window when jumping between matches with <strong>`n`</strong> and <strong>`N`</strong>.
 
-
 ### 2. Applies sane pattern syntax by default<a name="loupe-2-applies-sane-pattern-syntax-by-default" href="#user-content-loupe-2-applies-sane-pattern-syntax-by-default"></a>
 
 Loupe makes &quot;very magic&quot; (<strong>`/\v`</strong>) syntax apply by default when searching. This is true even if you initiate a search via a novel means, such as from a visual selection or with a complicated <strong>`:range`</strong> prefix.
 
 This means that you can use a pattern syntax closer to the familiar regular expression syntax from languages such as Perl, Ruby, JavaScript (indeed, most other modern languages that support regular expressions).
 
-
 ### 3. Provides a shortcut to remove search highlighting<a name="loupe-3-provides-a-shortcut-to-remove-search-highlighting" href="#user-content-loupe-3-provides-a-shortcut-to-remove-search-highlighting"></a>
 
 Loupe maps &lt;leader&gt;n to quickly remove all 'hlsearch' highlighting (although you can provide an alternative mapping of your choosing or suppress the feature entirely).
 
-
 ### 4. Sensible defaults for search-related features<a name="loupe-4-sensible-defaults-for-search-related-features" href="#user-content-loupe-4-sensible-defaults-for-search-related-features"></a>
 
 Loupe provides reasonable defaults for most search-related Vim settings to provide a good &quot;out of the box&quot; experience. For more details, or to see how to override Loupe's settings, see <strong>[`loupe-overrides`](#user-content-loupe-overrides)</strong>.
-
 
 ## Installation<a name="loupe-installation" href="#user-content-loupe-installation"></a>
 
@@ -61,9 +55,7 @@ To generate help tags under Pathogen, you can do so from inside Vim with:
 :call pathogen#helptags()
 ```
 
-
 ## Mappings<a name="loupe-mappings" href="#user-content-loupe-mappings"></a>
-
 
 ### `<Plug>(LoupeClearHighlight)`<a name="loupe-plugloupeclearhighlight" href="#user-content-loupe-plugloupeclearhighlight"></a>
 
@@ -80,7 +72,6 @@ Note that Loupe will not try to set up its &lt;leader&gt;n mapping if any of the
 - An alternative mapping for <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong> has already been set up from a <strong>`.vimrc`</strong>.
 - The mapping has been suppressed by setting <strong>[`g:LoupeClearHighlightMap`](#user-content-gloupeclearhighlightmap)</strong> to 1 in your <strong>`.vimrc`</strong>.
 
-
 ### `<Plug>(LoupeOctothorpe)`<a name="loupe-plugloupeoctothorpe" href="#user-content-loupe-plugloupeoctothorpe"></a>
 
 Loupe maps <strong>`#`</strong> to <strong>[`<Plug>(LoupeOctothorpe)`](#user-content-plugloupeoctothorpe)</strong> in order to implement custom highlighting and line-centering for the current match.
@@ -90,7 +81,6 @@ To prevent this from happening, create an alternate mapping in your <strong>`.vi
 ```
 nmap <Nop> <Plug>(LoupeOctothorpe)
 ```
-
 
 ### `<Plug>(LoupeStar)`<a name="loupe-plugloupestar" href="#user-content-loupe-plugloupestar"></a>
 
@@ -102,7 +92,6 @@ To prevent this from happening, create an alternate mapping in your <strong>`.vi
 nmap <Nop> <Plug>(LoupeStar)
 ```
 
-
 ### `<Plug>(LoupeN)`<a name="loupe-plugloupen" href="#user-content-loupe-plugloupen"></a>
 
 Loupe maps <strong>`N`</strong> to <strong>[`<Plug>(LoupeN)`](#user-content-plugloupen)</strong> in order to implement custom highlighting and line-centering for the current match.
@@ -112,7 +101,6 @@ To prevent this from happening, create an alternate mapping in your <strong>`.vi
 ```
 nmap <Nop> <Plug>(LoupeN)
 ```
-
 
 ### `<Plug>(LoupeGOctothorpe)`<a name="loupe-plugloupegoctothorpe" href="#user-content-loupe-plugloupegoctothorpe"></a>
 
@@ -124,7 +112,6 @@ To prevent this from happening, create an alternate mapping in your <strong>`.vi
 nmap <Nop> <Plug>(LoupeGOctothorpe)
 ```
 
-
 ### `<Plug>(LoupeGStar)`<a name="loupe-plugloupegstar" href="#user-content-loupe-plugloupegstar"></a>
 
 Loupe maps <strong>`gstar`</strong> to <strong>[`<Plug>(LoupeGStar)`](#user-content-plugloupegstar)</strong> in order to implement custom highlighting and line-centering for the current match.
@@ -135,7 +122,6 @@ To prevent this from happening, create an alternate mapping in your <strong>`.vi
 nmap <Nop> <Plug>(LoupeGStar)
 ```
 
-
 ### `<Plug>(Loupen)`<a name="loupe-plugloupen" href="#user-content-loupe-plugloupen"></a>
 
 Loupe maps <strong>`n`</strong> to <strong>[`<Plug>(Loupen)`](#user-content-plugloupen)</strong> in order to implement custom highlighting and line-centering for the current match.
@@ -145,7 +131,6 @@ To prevent this from happening, create an alternate mapping in your <strong>`.vi
 ```
 nmap <Nop> <Plug>(Loupen)
 ```
-
 
 ## Options<a name="loupe-options" href="#user-content-loupe-options"></a>
 
@@ -213,7 +198,6 @@ This setting forces Vim to respect your <strong>`'smartcase'`</strong> and <stro
 let g:LoupeCaseSettingsAlways=0
 ```
 
-
 ## Functions<a name="loupe-functions" href="#user-content-loupe-functions"></a>
 
 <p align="right"><a name="loupehlmatch" href="#user-content-loupehlmatch"><code>loupe#hlmatch()</code></a></p>
@@ -222,37 +206,42 @@ let g:LoupeCaseSettingsAlways=0
 
 Apply highlighting to the current search match.
 
-
 ## Overrides<a name="loupe-overrides" href="#user-content-loupe-overrides"></a>
 
 Loupe sets a number of search-related Vim settings to reasonable defaults in order to provide a good &quot;out of the box&quot; experience. The following overrides will be set unless suppressed or overridden (see <strong>[`loupe-suppress-overrides`](#user-content-loupe-suppress-overrides)</strong>):
 
 <p align="right"><a name="loupe-history-override" href="#user-content-loupe-history-override"><code>loupe-history-override</code></a></p>
+
 <strong>`'history'`</strong>
 
 Increased to 1000, to increase the number of previous searches remembered. Note that Loupe only applies this setting if the current value of 'history' is less than 1000.
 
 <p align="right"><a name="loupe-hlsearch-override" href="#user-content-loupe-hlsearch-override"><code>loupe-hlsearch-override</code></a></p>
+
 <strong>`'hlsearch'`</strong>
 
 Turned on (when there is a previous search pattern, highlight all its matches).
 
 <p align="right"><a name="loupe-incsearch-override" href="#user-content-loupe-incsearch-override"><code>loupe-incsearch-override</code></a></p>
+
 <strong>`'incsearch'`</strong>
 
 Turned on (while typing a search command, show where the pattern matches, as it was typed so far).
 
 <p align="right"><a name="loupe-ignorecase-override" href="#user-content-loupe-ignorecase-override"><code>loupe-ignorecase-override</code></a></p>
+
 <strong>`'ignorecase'`</strong>
 
 Turned on (to ignore case in search patterns).
 
 <p align="right"><a name="loupe-shortmess-override" href="#user-content-loupe-shortmess-override"><code>loupe-shortmess-override</code></a></p>
+
 <strong>`'shortmess'`</strong>
 
 Adds &quot;s&quot;, which suppresses the display of &quot;search hit BOTTOM, continuing at TOP&quot; and &quot;search hit TOP, continuing at BOTTOM&quot; messages.
 
 <p align="right"><a name="loupe-smartcase-override" href="#user-content-loupe-smartcase-override"><code>loupe-smartcase-override</code></a></p>
+
 <strong>`'smartcase'`</strong>
 
 Turned on (overrides <strong>`'ignorecase'`</strong>, making the search pattern case-sensitive whenever it containers uppercase characters).
@@ -274,13 +263,11 @@ To override any of these choices, you can place overrides in an <strong>`after-d
  set shortmess-=s
 ```
 
-
 ## Related<a name="loupe-related" href="#user-content-loupe-related"></a>
 
 Just as Loupe aims to improve the within-file search experience, Ferret does the same for multi-file searching and replacing:
 
 - https://github.com/wincent/ferret
-
 
 ## Website<a name="loupe-website" href="#user-content-loupe-website"></a>
 
@@ -296,7 +283,6 @@ Official releases are listed at:
 
 - http://www.vim.org/scripts/script.php?script_id=5215
 
-
 ## License<a name="loupe-license" href="#user-content-loupe-license"></a>
 
 Copyright 2015-present Greg Hurrell. All rights reserved.
@@ -309,14 +295,11 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
 ## Development<a name="loupe-development" href="#user-content-loupe-development"></a>
-
 
 ### Contributing patches<a name="loupe-contributing-patches" href="#user-content-loupe-contributing-patches"></a>
 
 Patches can be sent via mail to greg@hurrell.net, or as GitHub pull requests at: https://github.com/wincent/loupe/pulls
-
 
 ### Cutting a new release<a name="loupe-cutting-a-new-release" href="#user-content-loupe-cutting-a-new-release"></a>
 
@@ -351,7 +334,6 @@ git archive -o loupe-$VERSION.zip HEAD -- .
 
 - Upload to http://www.vim.org/scripts/script.php?script_id=5215
 
-
 ## Authors<a name="loupe-authors" href="#user-content-loupe-authors"></a>
 
 Loupe is written and maintained by Greg Hurrell &lt;greg@hurrell.net&gt;.
@@ -364,24 +346,19 @@ Which he discussed in his &quot;More Instantly Better Vim&quot; presentation at 
 
 - https://www.youtube.com/watch?v=aHm36-na4-4
 
-
 ## History<a name="loupe-history" href="#user-content-loupe-history"></a>
-
 
 ### master (not yet released)<a name="loupe-master-not-yet-released" href="#user-content-loupe-master-not-yet-released"></a>
 
 - Add <strong>[`g:LoupeCaseSettingsAlways`](#user-content-gloupecasesettingsalways)</strong> to make Vim respect <strong>`'ignorecase'`</strong> and <strong>`'smartcase'`</strong> settings while using <strong>`star`</strong>, <strong>`gstar`</strong>, <strong>`#`</strong> and <strong>`g#`</strong>.
 
-
 ### 1.2.2 (7 August 2018)<a name="loupe-122-7-august-2018" href="#user-content-loupe-122-7-august-2018"></a>
 
 - Fix error-handling to work regardless of <strong>`'iskeyword'`</strong> setting (https://github.com/wincent/loupe/pull/14).
 
-
 ### 1.2.1 (13 July 2016)<a name="loupe-121-13-july-2016" href="#user-content-loupe-121-13-july-2016"></a>
 
 - Match default Vim behavior of opening folds when jumping to a match.
-
 
 ### 1.2 (27 June 2016)<a name="loupe-12-27-june-2016" href="#user-content-loupe-12-27-june-2016"></a>
 
@@ -389,17 +366,14 @@ Which he discussed in his &quot;More Instantly Better Vim&quot; presentation at 
 - Expose <strong>[`loupe#hlmatch()`](#user-content-loupehlmatch)</strong> (previously was a private function) for users who wish to do low-level intergration with other plug-ins.
 - Provide <strong>`<Plug>`</strong> mappings for <strong>`star`</strong>, <strong>`#`</strong>, <strong>`n`</strong>, <strong>`N`</strong>, <strong>`gstar`</strong>, <strong>`g#`</strong> (see <strong>[`<Plug>(LoupeStar)`](#user-content-plugloupestar)</strong>, <strong>[`<Plug>(LoupeOctothorpe)`](#user-content-plugloupeoctothorpe)</strong>, <strong>[`<Plug>(Loupen)`](#user-content-plugloupen)</strong>, <strong>[`<Plug>(LoupeN)`](#user-content-plugloupen)</strong>, <strong>[`<Plug>(LoupeGStar)`](#user-content-plugloupegstar)</strong>, <strong>[`<Plug>(LoupeGOctothorpe)`](#user-content-plugloupegoctothorpe)</strong>).
 
-
 ### 1.1 (15 June 2016)<a name="loupe-11-15-june-2016" href="#user-content-loupe-11-15-june-2016"></a>
 
 - Make compatible with older versions of Vim that do not have <strong>`v:hlsearch`</strong>.
 - Add support for special delimiters with <strong>`:substitute`</strong> command.
 
-
 ### 1.0 (28 December 2015)<a name="loupe-10-28-december-2015" href="#user-content-loupe-10-28-december-2015"></a>
 
 - Renamed the <strong>`<Plug>LoupeClearHighlight`</strong> mapping to <strong>[`<Plug>(LoupeClearHighlight)`](#user-content-plugloupeclearhighlight)</strong>.
-
 
 ### 0.1 (5 July 2015)<a name="loupe-01-5-july-2015" href="#user-content-loupe-01-5-july-2015"></a>
 
