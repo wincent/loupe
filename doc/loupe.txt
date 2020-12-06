@@ -195,6 +195,15 @@ disable, set to 0:
     let g:LoupeVeryMagic=0
 <
 
+                                                       *g:LoupeVeryMagicReplace*
+|g:LoupeVeryMagicReplace|
+
+Controls whether "very magic" pattern syntax (|/\v|) is deleted when entering an empty search while replacing. This replaces the lase search. To enable, set to 1:
+
+>
+    let g:LoupeVeryMagicReplace=1
+<
+
                                                           *g:LoupeCenterResults*
 |g:LoupeCenterResults|                                      boolean (default: 1)
 
@@ -387,6 +396,7 @@ master (not yet released) ~
 
 - Add |g:LoupeCaseSettingsAlways| to make Vim respect |'ignorecase'| and
   |'smartcase'| settings while using |star|, |gstar|, |#| and |g#|.
+- Add |g:LoupeVeryMagicReplace| to automatically delete |\v| when doing an empty search while replacing. This makes replacing the last search with |:%s//replacement| easy.
 
 1.2.2 (7 August 2018) ~
 
