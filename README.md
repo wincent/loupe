@@ -323,8 +323,8 @@ git tag -s -m "$VERSION release" $VERSION
 - Publish the code:
 
 ```
-git push origin master --follow-tags
-git push github master --follow-tags
+git push origin main --follow-tags
+git push github main --follow-tags
 ```
 
 - Produce the release archive:
@@ -349,7 +349,7 @@ Which he discussed in his &quot;More Instantly Better Vim&quot; presentation at 
 
 ## History<a name="loupe-history" href="#user-content-loupe-history"></a>
 
-### master (not yet released)<a name="loupe-master-not-yet-released" href="#user-content-loupe-master-not-yet-released"></a>
+### main (not yet released)<a name="loupe-main-not-yet-released" href="#user-content-loupe-main-not-yet-released"></a>
 
 - Add <strong>[`g:LoupeCaseSettingsAlways`](#user-content-gloupecasesettingsalways)</strong> to make Vim respect <strong>`'ignorecase'`</strong> and <strong>`'smartcase'`</strong> settings while using <strong>`star`</strong>, <strong>`gstar`</strong>, <strong>`#`</strong> and <strong>`g#`</strong>.
 

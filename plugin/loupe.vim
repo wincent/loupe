@@ -221,8 +221,8 @@
 " - Publish the code:
 "
 " ```
-" git push origin master --follow-tags
-" git push github master --follow-tags
+" git push origin main --follow-tags
+" git push github main --follow-tags
 " ```
 "
 " - Produce the release archive:
@@ -249,7 +249,7 @@
 "
 " # History
 "
-" ## master (not yet released)
+" ## main (not yet released)
 "
 " - Add |g:LoupeCaseSettingsAlways| to make Vim respect |'ignorecase'| and
 "   |'smartcase'| settings while using |star|, |gstar|, |#| and |g#|.
