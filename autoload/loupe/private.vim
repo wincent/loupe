@@ -14,11 +14,12 @@ function! loupe#private#escape(cword) abort
   return substitute(a:cword, '\\', '\\\\', 'g')
 endfunction
 
-" Dynamically returns "/" or "/\v" depending on the location of the just-typed
-" "/" within the command-line. Only "/" that looks to be at the start of a
-" command gets replaced. The "slash" is itself configurable via the `slash`
-" argument, meaning that this function can be used in conjunction with other
-" pattern delimiters like "?" and "@" etc (ie. "?" -> "?\v", "@" -> "@\v").
+" Dynamically returns slash or slash-followed-by-"\v" depending on the location
+" of the just-typed slash within the command-line. Only a slash that looks to
+" be at the start of a command gets replaced. What the "slash" itself is is
+" configurable via the `slash` argument, meaning that this function can be used
+" in conjunction with other pattern delimiters like "?" and "@" etc (ie. "?" ->
+" "?\v", "@" -> "@\v").
 "
 " Doesn't handle the full list of possible range types (specified in `:h
 " cmdline-ranges`), but catches the most common ones.
@@ -27,7 +28,7 @@ function! loupe#private#very_magic_slash(slash) abort
     return a:slash
   endif
 
-  " For simplicity, only consider "/" typed at the end of the command-line.
+  " For simplicity, only consider a slash typed at the end of the command-line.
   let l:pos=getcmdpos()
   let l:cmd=getcmdline()
   if len(l:cmd) + 1 != l:pos
