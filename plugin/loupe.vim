@@ -253,6 +253,8 @@
 "
 " - Add |g:LoupeCaseSettingsAlways| to make Vim respect |'ignorecase'| and
 "   |'smartcase'| settings while using |star|, |gstar|, |#| and |g#|.
+" - Ensure that |g:LoupeVeryMagic| takes effect with longer-forms of the
+"   |:global|, |:substitute| and |:vglobal| commands.
 "
 " ## 1.2.2 (7 August 2018)
 "

@@ -44,7 +44,11 @@ function! loupe#private#very_magic_slash(slash) abort
     endif
   endwhile
 
-  if index(['g', 's', 'v'], l:cmd) != -1
+  if index([
+        \   'g', 'gl', 'glo', 'glob', 'globa', 'global',
+        \   's', 'su', 'sub', 'subs', 'subst', 'substi', 'substit', 'substitu', 'substitut', 'substitute',
+        \   'v'
+        \ ], l:cmd) != -1
     return loupe#private#prepare_highlight(a:slash . '\v')
   endif
 
