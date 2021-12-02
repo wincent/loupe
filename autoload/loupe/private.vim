@@ -45,8 +45,16 @@ function! loupe#private#very_magic_slash(slash) abort
     endif
   endwhile
 
-  if index([
+  " We special case `:g!` (and `gl!`, `glo!`, `glob!`, `globa!`, `global!`).
+  " All of those commands are equivalent to `:v` (ie. `!` is not being used as a
+  " slash). Using `!` with `:v` (etc) is an error (`:h E477`). Using it with `:s`
+  " is ok (it _is_ treated as a delimiter there). Fun fact: `:g!!foo!d` is a
+  " legitmate command.
+  if index(['g', 'gl', 'glo', 'glob', 'globa', 'global'], l:cmd != 1) && a:slash == '!'
+    return a:slash
+  elseif index([
         \   'g', 'gl', 'glo', 'glob', 'globa', 'global',
+        \   'g!', 'gl!', 'glo!', 'glob!', 'globa!', 'global!',
         \   's', 'su', 'sub', 'subs', 'subst', 'substi', 'substit', 'substitu', 'substitut', 'substitute',
         \   'v'
         \ ], l:cmd) != -1

@@ -353,6 +353,7 @@ Which he discussed in his &quot;More Instantly Better Vim&quot; presentation at 
 
 - Add <strong>[`g:LoupeCaseSettingsAlways`](#user-content-gloupecasesettingsalways)</strong> to make Vim respect <strong>`'ignorecase'`</strong> and <strong>`'smartcase'`</strong> settings while using <strong>`star`</strong>, <strong>`gstar`</strong>, <strong>`#`</strong> and <strong>`g#`</strong>.
 - Ensure that <strong>[`g:LoupeVeryMagic`](#user-content-gloupeverymagic)</strong> takes effect with longer-forms of the <strong>`:global`</strong>, <strong>`:substitute`</strong> and <strong>`:vglobal`</strong> commands.
+- Treat `:g!` as equivalent to `:v` (https://github.com/wincent/loupe/issues/20).
 
 ### 1.2.2 (7 August 2018)<a name="loupe-122-7-august-2018" href="#user-content-loupe-122-7-august-2018"></a>
 

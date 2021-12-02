@@ -389,6 +389,7 @@ main (not yet released) ~
   |'smartcase'| settings while using |star|, |gstar|, |#| and |g#|.
 - Ensure that |g:LoupeVeryMagic| takes effect with longer-forms of the
   |:global|, |:substitute| and |:vglobal| commands.
+- Treat `:g!` as equivalent to `:v` (https://github.com/wincent/loupe/issues/20).
 
 1.2.2 (7 August 2018) ~
 
