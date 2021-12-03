@@ -56,7 +56,7 @@ function! loupe#private#very_magic_slash(slash) abort
         \   'g', 'gl', 'glo', 'glob', 'globa', 'global',
         \   'g!', 'gl!', 'glo!', 'glob!', 'globa!', 'global!',
         \   's', 'su', 'sub', 'subs', 'subst', 'substi', 'substit', 'substitu', 'substitut', 'substitute',
-        \   'v'
+        \   'v', 'vg', 'vgl', 'vglo', 'vglob', 'vgloba', 'vglobal',
         \ ], l:cmd) != -1
     return loupe#private#prepare_highlight(a:slash . '\v')
   endif
