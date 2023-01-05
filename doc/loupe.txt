@@ -198,7 +198,7 @@ disable, set to 0:
                                                        *g:LoupeVeryMagicReplace*
 |g:LoupeVeryMagicReplace|
 
-Controls whether "very magic" pattern syntax (|/\v|) is deleted when entering an empty search while replacing. This replaces the lase search. To enable, set to 1:
+Controls whether "very magic" pattern syntax (|/\v|) is deleted when entering an empty search while replacing. This replaces the last search. To enable, set to 1:
 
 >
     let g:LoupeVeryMagicReplace=1
