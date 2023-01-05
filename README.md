@@ -178,7 +178,7 @@ let g:LoupeVeryMagic=0
 ```
 #### `g:LoupeVeryMagicReplace` (boolean, default: 0)<a name="loupe-gloupeverymagicreplace-boolean-default-0" href="#user-content-loupe-gloupeverymagicreplace-boolean-default-0"></a>
 
-Controls whether &quot;very magic&quot; pattern syntax (<strong>`/\v`</strong>) is deleted when entering an empty search while replacing. This replaces the lase search. To enable, set to 1:
+Controls whether &quot;very magic&quot; pattern syntax (<strong>`/\v`</strong>) is deleted when entering an empty search while replacing. This replaces the last search. To enable, set to 1:
 
 ```
 let g:LoupeVeryMagicReplace=1
