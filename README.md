@@ -272,11 +272,7 @@ Just as Loupe aims to improve the within-file search experience, Ferret does the
 
 ## Website<a name="loupe-website" href="#user-content-loupe-website"></a>
 
-The official Loupe source code repo is at:
-
-- http://git.wincent.com/loupe.git
-
-A mirror exists at:
+Source code:
 
 - https://github.com/wincent/loupe
 

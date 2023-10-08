@@ -153,11 +153,7 @@
 "
 " # Website
 "
-" The official Loupe source code repo is at:
-"
-" - http://git.wincent.com/loupe.git
-"
-" A mirror exists at:
+" Source code:
 "
 " - https://github.com/wincent/loupe
 "
