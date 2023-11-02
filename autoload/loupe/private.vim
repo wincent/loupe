@@ -61,6 +61,11 @@ function! loupe#private#very_magic_slash(slash) abort
     return loupe#private#prepare_highlight(a:slash . '\v')
   endif
 
+  let s:replaceLastSearch=get(g:,'LoupeVeryMagicReplace', 0)
+  if s:replaceLastSearch && index(['g' . a:slash . '\v', 's' . a:slash . '\v', 'v' . a:slash . '\v'], l:cmd) != -1
+      return "\b\b" . a:slash
+  endif
+
   return a:slash
 endfunction
 

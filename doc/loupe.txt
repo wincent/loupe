@@ -195,6 +195,15 @@ disable, set to 0:
     let g:LoupeVeryMagic=0
 <
 
+                                                       *g:LoupeVeryMagicReplace*
+|g:LoupeVeryMagicReplace|
+
+Controls whether "very magic" pattern syntax (|/\v|) is deleted when entering an empty search while replacing. This replaces the last search. To enable, set to 1:
+
+>
+    let g:LoupeVeryMagicReplace=1
+<
+
                                                           *g:LoupeCenterResults*
 |g:LoupeCenterResults|                                      boolean (default: 1)
 
@@ -386,6 +395,7 @@ main (not yet released) ~
 - Ensure that |g:LoupeVeryMagic| takes effect with longer-forms of the
   |:global|, |:substitute| and |:vglobal| commands.
 - Treat `:g!` as equivalent to `:v` (https://github.com/wincent/loupe/issues/20).
+- Add |g:LoupeVeryMagicReplace| to automatically delete |\v| when doing an empty search while replacing. This makes replacing the last search with |:%s//replacement| easy.
 
 1.2.2 (7 August 2018) ~
 

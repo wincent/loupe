@@ -176,6 +176,13 @@ Controls whether &quot;very magic&quot; pattern syntax (<strong>`/\v`</strong>) 
 ```
 let g:LoupeVeryMagic=0
 ```
+#### `g:LoupeVeryMagicReplace` (boolean, default: 0)<a name="loupe-gloupeverymagicreplace-boolean-default-0" href="#user-content-loupe-gloupeverymagicreplace-boolean-default-0"></a>
+
+Controls whether &quot;very magic&quot; pattern syntax (<strong>`/\v`</strong>) is deleted when entering an empty search while replacing. This replaces the last search. To enable, set to 1:
+
+```
+let g:LoupeVeryMagicReplace=1
+```
 
 <p align="right"><a name="gloupecenterresults" href="#user-content-gloupecenterresults"><code>g:LoupeCenterResults</code></a></p>
 
@@ -350,6 +357,7 @@ Which he discussed in his &quot;More Instantly Better Vim&quot; presentation at 
 - Add <strong>[`g:LoupeCaseSettingsAlways`](#user-content-gloupecasesettingsalways)</strong> to make Vim respect <strong>`'ignorecase'`</strong> and <strong>`'smartcase'`</strong> settings while using <strong>`star`</strong>, <strong>`gstar`</strong>, <strong>`#`</strong> and <strong>`g#`</strong>.
 - Ensure that <strong>[`g:LoupeVeryMagic`](#user-content-gloupeverymagic)</strong> takes effect with longer-forms of the <strong>`:global`</strong>, <strong>`:substitute`</strong> and <strong>`:vglobal`</strong> commands.
 - Treat `:g!` as equivalent to `:v` (https://github.com/wincent/loupe/issues/20).
+- Add <strong>[`g:LoupeVeryMagicReplace`](#user-content-gloupecasesettingsalways)</strong> to automatically delete <strong>`\v`</strong> when doing an empty search while replacing. This makes replacing the last search with <strong>`:%s//replacement`</strong> easy.
 
 ### 1.2.2 (7 August 2018)<a name="loupe-122-7-august-2018" href="#user-content-loupe-122-7-august-2018"></a>
 
